@@ -1,0 +1,167 @@
+#+STARTUP: showall hidestars
+
+* Emacs
+
+** [[https://www.youtube.com/watch?v=x5KiYDd9s8k&list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg&index=2][Mike Zamanski-youtube]]
+
+[[http://cestlaz.github.io][the blog]]
+
+
+
+
+[Absolute Beginner's Guide to Emacs](http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/?ref=hackr.io)
+
+[[GNU Emacs #1: Installing on Windows - Abel Guitian][https://www.youtube.com/watch?v=CKgQ7sri7vo]]
+
+Crear M-x themes. Crae .emacs
+
+crear /home mediante variable de entorno.
+
+[[GNU Emacs #2: Buffer y Ventana][https://www.youtube.com/watch?v=EMv_2ZN7V6k]]
+
+C-x s macro para guardar
+
+M-x split-win
+
+C-x k cerrar
+
+C-x 1
+
+[[Archivo de configuración .emacs][https://www.youtube.com/watch?v=LE5cLc98KEY]] 
+
+Indicador de columnas
+
+C-x C-f .em
+
+(column-number-mode t)
+
+reinciciamos
+
+Indicador de linea a la izquierda.
+
+M-x customize
+
+global linum mode
+
+ver archivo de configuración .emacs
+
+[[Customización de Emacs][https://www.youtube.com/watch?v=h3fnRp9YSw0]]
+
+Cambiar el aspecto de Emacs.
+
+Quitar el tool bar
+
+M-x customize
+
+subgrupo llamado frame
+
+Variable: Tool Bar Mode
+
+Menu Bar Mode
+
+Reiniciar Emacs
+C-x sy
+C-x C-c
+
+Themes
+
+https://emacsthemes.com
+
+tema seti available en melpa
+
+descargarlo zip
+
+descomprimir
+
+seti-theme.el
+
+
+cd .emacs.d
+mkdir themes
+copiar
+cd descargas/seti-theme-master
+cp seti-theme.el ~/.emacs.d/themes/
+
+;;SET THEME
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+(load-theme 'seti t)
+
+M-x load-theme
+
+[[Emacs- Paquetes][https://www.youtube.com/watch?v=EJaw3JwtHEc]]
+
+M-x list-packages
+
+M-x customize (para agregar MELPA)
+
+C-s (Buscar)
+
+multiple cursors: emacsrocks
+
+[[GNU Emacs #6: Shell ][https://www.youtube.com/watch?v=7-EFI65kmDA]]
+
+diferent types of shell in emacs
+
+M-x shell
+
+M-x eshell
+
+
+[[GNU Emacs #7: Dired Mode Part 1][https://www.youtube.com/watch?v=rBcw42ZGJDo]]
+
+Dired Mode poder gestionar archivos dentro emacas
+
+
+* Tablas
+
+| Mes | Minutos |
+| --- | ------- |
+| Enero | 27 |
+| Febrero | 95 |
+| Marzo | 241 |
+| Abril | 49 |
+| Mayo | 102 |
+| Junio | 103 |
+| Julio | 362 |
+| Agosto | 7 |
+| Septiembre | 16 |
+| Octubre | 82 |
+
+
+[[https://www.youtube.com/watch?v=VqCSbDqHziM][Elisp Tutorial - Part 3 Looping and Local Variables-Daniel Gopar]]
+
+[[https://www.youtube.com/watch?v=49kBWM3RQQ8&list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg][Using Emacs-Mike Zamanski]]
+
+* LaTeX inside org file
+
+** [[https://opensource.com/article/18/4/how-create-latex-documents-emacs][How to create LaTeX documents with Emacs]]
+This tutorial takes you through the process of creating a document in LaTeX, a powerful open source typesetting system, using GNU Emacs.
+
+  - [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-LaTeX.html][LaTeX Source Code Blocks in Org Mode]]
+
+* [[https://orgmode.org/manual/index.html#SEC_Contents][The Org Mode Manual]]
+
+* Books reading
+  
+  - An Introduction to Programming in Emacs Lisp. Robert J. Chassell
+  - Una introducción rápida a GNU Emacs. Joaquín Ataz López
+  - La Guía compacta de Org-mode. Carsten Dominik
+  - Creación de ficheros LaTeX con GNU Emacs. Joaquín Ataz López
+  - AUCTEX. Kresten Krab Throup. Per Abrahamsen. David Kastrup
+  - RefTEX User Manual. Carsten Dominik
+  - Guía casi completa de BIBTEX. Joaquín Ataz López
+
+* current webs 
+  - [[https://cestlaz.github.io/posts/using-emacs-2-org/][blog-C'EST LA Z]]
+
+  - [[http://ergoemacs.org/emacs/elisp_basics.html][blog-Xah]]
+
+  - [[https://ondahostil.wordpress.com/2019/02/07/lo-que-he-aprendido-auctex/][blog-onda hostil-pdf tools]]
+
+
+
+
+
+
