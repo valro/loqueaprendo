@@ -1,0 +1,34 @@
+
+[[https://orgmode.org/manual/index.html#SEC_Contents][Manual de Org-Mode]]
+
+[[https://itsfoss.com/download-youtube-linux/][Download YouTube Videos in Linux Command Line]]
+
+[[https://www.ostechnix.com/download-youtube-videos-with-subtitles-using-youtube-dl/][Download YouTube Videos with Subtitles using Youtube-dl- TechNix]]
+
+[[https://alhassy.github.io/init/][#Blog: Life and Computer Science - A Life configuring Emacs]]
+
+[[https://github.com/alhassy][Musa Al-hassy-Programming language enthusiast ;; Emacs & Org-mode Promoter ;; PhD Candidate-McMaster University]]
+
+[[http://ergoemacs.org/emacs/emacs_line_number_problem.html][Elisp: Line Number Problem count-lines is fairly complex. It works by counting the number of newline character, but involves narrow-to-region, save-restriction, and save-excursion.]]
+
+[[https://www.emacswiki.org/emacs/ElispCookbook#toc2][ElispCookbook]]
+
+[[http://ergoemacs.org/emacs/elisp_text_editing_functions.html][Elisp: Text Editing Functions]]
+
+[[http://ergoemacs.org/emacs/elisp_all_about_lines.html][Elisp: Functions on Line]]
+
+[[http://ergoemacs.org/emacs/elisp_cursor_position.html][Elisp: Cursor Position Functions]]
+
+[[http://ergoemacs.org/emacs/emacs_regex_begin_end_line_string.html][Emacs Regex Quirk: Matching Beginning/End of Line/String/Buffer]]
+
+[[https://www.blackhats.es/wordpress/?s=links][Sincronizacion de bookmarks con org-mode + org-protocol + org-mode capture + Firefox + linkification + Dropbox]]
+
+[[http://ergoemacs.org/emacs/elisp_editing_basics.html][Elisp: Overview of Text-Processing in Emacs Lisp]]
+
+[[https://emacs.stackexchange.com/questions/20169/can-i-write-elisp-code-to-act-on-the-text-in-a-buffer][Can I write elisp code to act on the text in a buffer "closed"]]
+
+[[https://github.com/oslugr/curso-git][Curso Git]]
+
+[[http://pragmaticemacs.com/emacs/wrap-text-in-an-org-mode-block/][Blog: Pragmatic Emacs. WRAP TEXT IN AN ORG-MODE BLOCK]]
+
+
