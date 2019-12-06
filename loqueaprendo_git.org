@@ -42,5 +42,30 @@ git config --gloabal user.email "correo@electronico.com"
 
      #+END_SRC
   3. Añadir archivos al repositorio
+     El /Index/ es sólo una lista de cosas que tendrás que actualizar en el repositorio porque han cambiado. Esto se hace con la orden /git add/
+     La instrucción /git commit/ es la que realmente envía las cosas que hay en el /Index/ al repositorio. Se llama *HEAD*. 
+     La secuencia es Directorio de trabajo -> Index -> HEAD
+     
+     #+BEGIN_SRC sh
+     git add loqueaprendo_git.org
+     git add loqueaprendo*.*
+     git add .
+
+     #+END_SRC
+  4. Ver estado /git status/
+  5. Ver repositorio remoto: /git remote -v/
+  6. Añadir otro repositorio remoto: /git remote add/ ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO
+  7. Eliminar un repositorio: /git remote rm/ NOMBRE
+  8. Cambiar el nombre del repositorio: /git remote rename/ NOMBRE_ANTERIOR NOMBRE_ACTUAL
+
+* Recibiendo cambios
+
+  - /git pull/
+  - /git pull origin master/
+  - /git pull/ REPOSITORIO_REMOTO RAMA
+
+* Enviando cambios
+
+
 
      
