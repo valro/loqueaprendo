@@ -1,0 +1,46 @@
+#+STARTUP: showall
+-----
+
+#+TITLE: Lo que aprendo: git
+#+AUTHOR: valro
+#+EMAIL: valro.gallego@gmail.com
+
+------
+
+@BOOK {juanjuliánmereloguervósángelpablohinojosagutiérrez2017,
+    author    = "Juan Julián Merelo Guervós, Ángel Pablo Hinojosa Gutiérrez",
+    title     = "Aprende Git: ... y, de camino, GitHub",
+    publisher = "Amazon.Kindle",
+    year      = "2017"
+} 
+
+------
+
+[[https://github.com/JJ/aprende-git][Repositorio]] 
+
+* Configurar los parámetros iniciales
+
+#+BEGIN_SRC sh
+
+git config --global user.name "Nombre que quieras mostrar"
+git config --gloabal user.email "correo@electronico.com"
+
+#+END_SRC
+
+** Diferencia entre /global/ y /local/
+
+
+* Iniciando un repositorio
+
+  1. Situarse en el directorio de nuestro proyecto (el que contiene o va a contener los archivos que queremos controlar)
+
+  2. Ejecutar:
+
+     #+BEGIN_SRC sh
+
+     git init
+
+     #+END_SRC
+  3. Añadir archivos al repositorio
+
+     
