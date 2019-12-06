@@ -16,7 +16,7 @@
 
 ------
 
-[[https://github.com/JJ/aprende-git][Repositorio]] 
+[[https://github.com/JJ/aprende-git][Repositorio del libro]] 
 
 * Configurar los parámetros iniciales
 
@@ -57,15 +57,33 @@ git config --gloabal user.email "correo@electronico.com"
   6. Añadir otro repositorio remoto: /git remote add/ ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO
   7. Eliminar un repositorio: /git remote rm/ NOMBRE
   8. Cambiar el nombre del repositorio: /git remote rename/ NOMBRE_ANTERIOR NOMBRE_ACTUAL
+  9. Hacer commit: /git commit/
 
 * Recibiendo cambios
-
+  #+BEGIN_SRC sh
   - /git pull/
   - /git pull origin master/
   - /git pull/ REPOSITORIO_REMOTO RAMA
-
+  #END_SRC
 * Enviando cambios
 
+  #+BEGIN_SRC sh
+  - /git push/ usuario:XXXXX contraseña: XXXXXXXXXX
+    # Si el fichero en el repositorio es más reciente habrá que hacer previamente un /pull/
+  - /git config --global push.default simple/
+  #+END_SRC
+  
+  Para utilizar /ssh/ usando claves, existe [[https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh#platform-all][esta página de ayuda de conexión a GitHub con SSH]] 
+
+** [[https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh#platform-all][Connecting to GitHub with SSH]]
+
+*** [[https://help.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys][Checking for existing SSH keys]]
+*** [[https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent][Generate a new SSH key and Adding your SSH key to the ssh-agent]]
+*** [[https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account][Adding a new SSH key to your GitHub account]]
 
 
-     
+
+
+
+
+
