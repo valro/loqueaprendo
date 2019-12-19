@@ -1,0 +1,403 @@
+#+TITLE: Lo que aprendo. elisp
+#+AUTHOR: valro
+#+DATE: 06/12/2019
+;;#+STARTUP: showall 
+
+------
+* Org Mode
+
+** [[http://pragmaticemacs.com/emacs/wrap-text-in-an-org-mode-block/][WRAP TEXT IN AN ORG-MODE BLOCK]] 
+
+In my most recent post on org-mode, I talked about using blocks to mark text as being latex, 
+or source code and so on. I mentioned using the shortcuts like <e then TAB on a new line to create an empty block. 
+Sometimes it is handy to wrap existing text in a block, and the following function does that for the text 
+you have selected.
+
+This has been in my config file for ages and I can’t remember where it came from – I know I didn’t write it! 
+A bit of googleing suggests this could be the origin, but if anyone knows different, let me know.
+
+I bind the function to C-< because it reminds me of the < shortcuts to create the blocks, 
+and I don’t use the org-cycle-agenda-files that is usually bound to that key combo.
+
+#+BEGIN_SRC emacs-elisp
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; function to wrap blocks of text in org templates                       ;;
+;; e.g. latex or src etc                                                  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun org-begin-template ()
+  "Make a template at point."
+  (interactive)
+  (if (org-at-table-p)
+      (call-interactively 'org-table-rotate-recalc-marks)
+    (let* ((choices '(("s" . "SRC")
+                      ("e" . "EXAMPLE")
+                      ("q" . "QUOTE")
+                      ("v" . "VERSE")
+                      ("c" . "CENTER")
+                      ("l" . "LaTeX")
+                      ("h" . "HTML")
+                      ("a" . "ASCII")))
+           (key
+            (key-description
+             (vector
+              (read-key
+               (concat (propertize "Template type: " 'face 'minibuffer-prompt)
+                       (mapconcat (lambda (choice)
+                                    (concat (propertize (car choice) 'face 'font-lock-type-face)
+                                            ": "
+                                            (cdr choice)))
+                                  choices
+                                  ", ")))))))
+      (let ((result (assoc key choices)))
+        (when result
+          (let ((choice (cdr result)))
+            (cond
+             ((region-active-p)
+              (let ((start (region-beginning))
+                    (end (region-end)))
+                (goto-char end)
+                (insert "#+END_" choice "\n")
+                (goto-char start)
+                (insert "#+BEGIN_" choice "\n")))
+             (t
+              (insert "#+BEGIN_" choice "\n")
+              (save-excursion (insert "#+END_" choice))))))))))
+
+;;bind to key
+(define-key org-mode-map (kbd "C-<") 'org-begin-template)
+
+#+END_SRC
+
+
+** [[https://orgmode.org/worg/][Hello Oreg, The Org Mode Community]]
+
+** org-capture
+
+#+BEGIN_SRC elisp
+;; C-c c is for capture, it's good enough for me
+(define-key global-map "\C-cc" 'org-capture)
+;; force UTF-8 
+(setq org-export-coding-system 'utf-8)
+
+#+END_SRC
+
+#+RESULTS:
+: utf-8
+
+#+BEGIN_SRC elisp
+;; This changes the default file location for our tasks from ~/.notes to an entry in our Dropbox folder. Why there? Install a copy of Orgzly on your phone, and point it to the notes folder in your Dropbox account, and you’ll find your new task shown there.  
+(setq org-default-notes-file "~/Dropbox/notes/tasks.org")
+;; leer como sincronizar con orgzly
+#+END_SRC
+If you wanted to divide tasks into personal and work. We will let the tasks.org file (defined above) contain our personal stuff, and work-related tasks will go into work.org: 
+-----
+#+BEGIN_SRC elisp
+(add-to-list 'org-capture-templates
+             '("w" "Work-related Task"  entry
+               (file "~/Dropbox/notes/work.org")
+               "* TODO %?" :empty-lines 1))
+
+#+END_SRC
+
+#+RESULTS:
+| w | Work-related Task | entry | (file ~/Dropbox/notes/work.org) | * TODO %? | :empty-lines | 1 |
+
+-----
+Run org-capture, and we now have our new w template (but we lost our default). Type q and let’s configure org-capture to have both: 
+-----
+#+BEGIN_SRC elisp
+(add-to-list 'org-capture-templates
+             '("t" "Personal Task"  entry
+               (file org-default-notes-file)
+               "* TODO %?" :empty-lines 1))
+
+#+END_SRC
+
+#+RESULTS:
+| t | Personal Task     | entry | (file org-default-notes-file)   | * TODO %? | :empty-lines | 1 |
+| w | Work-related Task | entry | (file ~/Dropbox/notes/work.org) | * TODO %? | :empty-lines | 1 |
+
+-----
+
+* Raspberry home
+
+** Conexión con ssh
+   - abrir consola
+   #+BEGIN_SRC 
+   ssh pi@192.168.1.150
+   #+END_SRC
+   - introducir contraseña
+   Password: ValGalSan240907
+** Visualizar página Tomcat
+   - El servicio tomcat está activo por defecto
+   - Introducir en Navegador web: 192.168.1.150:8080
+
+* Linux Commands
+** [[https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/][Listing Running Services Under SystemD in Linux]]
+
+   - Listing running services
+   
+     #+BEGIN_SRC sh
+
+     systemctl
+     systemctl | grep "tomcat"
+
+     systemctl list-units --type=service
+     systemctl --type=service
+
+     systemctl list-units --type=service --state=active
+     systemctl --type=service --state=active
+
+     systemctl list-units --type=service --state=running 
+     systemctl --type=service --state=running
+
+   #+END_SRC
+
+   - The port they use
+     To determine the port a daemon process is listening on, you can use the netstat or ss tools as shown.
+     Where the flag -l means print all listening sockets, -t displays all TCP connections, -u shows all UDP connections, -n means print numeric port numbers (instead of application names) and -p means show application name.
+     
+     #+BEGIN_SRC 
+     netstat -ltup | grep "mysql"    
+     #+END_SRC
+   
+   - firewall
+
+* Tomcat
+
+** Version installed
+   - [[https://www.mkyong.com/tomcat/how-to-check-tomcat-version-installed/][How to check Tomcat version Installed]]
+
+   - Raspberry Home
+     
+     Para conocer el directorio de instalación:
+     #+BEGIN_SRC sh
+     sudo find / -name "version.sh"
+     #+END_SRC
+
+     #+RESULTS:
+     /home/pi/tomcat/apache-tomcat-8.5.28/bin/version.sh 
+
+     En directorio de instalación ejecutar
+     #+BEGIN_SRC 
+     /home/pi/tomcat/apache-tomcat-8.5.28/bin/.version.sh     
+     #+END_SRC
+     
+     #+RESULTS:
+
+     Using CATALINA_BASE:   /home/pi/tomcat/apache-tomcat-8.5.28
+     Using CATALINA_HOME:   /home/pi/tomcat/apache-tomcat-8.5.28
+     Using CATALINA_TMPDIR: /home/pi/tomcat/apache-tomcat-8.5.28/temp
+     Using JRE_HOME:        /usr
+     Using CLASSPATH:       /home/pi/tomcat/apache-tomcat-8.5.28/bin/bootstrap.jar:/home/pi/tomcat/apache-tomcat-8.5.28/bin/tomcat-juli.jar
+     Server version: Apache Tomcat/8.5.28
+     Server built:   Feb 6 2018 23:10:25 UTC
+     Server number:  8.5.28.0
+     OS Name:        Linux
+     OS Version:     4.9.66-v7+
+     Architecture:   arm
+
+** Configurar consola de administración de tomcat
+
+   1. nano conf/tomcat-users.xml
+
+   Introducir estas lineas:
+   <tomcat-users xmlns="http://tomcat.apache.org/xml" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+		 version="1.0">
+	<role rolename="manager-gui"/>
+	<user username="vgs" password="ValGalSan240907" roles="manager-gui"/>
+   </tomcat-users> 
+   
+   2. Ahora es necesario reiniciar tomcat:
+   
+   #+BEGIN_SRC sh
+   sudo systemctl restart tomcat.service
+   #+END_SRC
+
+   3. Configurar la aplicación web
+
+      Todas las aplicaciones están en el directorio: /home/pi/tomcat/apache-tomcat-8.5.28/webapps
+      
+      Editamos el fichero: /home/pi/tomcat/apache-tomcat-8.5.28/webapps/manager/META-INF/context.xml
+      
+      Introducimos comentario a las lineas:
+      
+      #+BEGIN_SRC xml
+      <!--
+        <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+	       allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+	<Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filt$
+
+      -->
+      #+END_SRC
+
+    4. Introducimos en el navegador: 192.168.1.150:8080
+
+    5. Seleccionamos "Web Application Manager". Usuario:vgs contraseña: "ValGalSan240907" y...voilà.
+
+      
+* Elisp
+
+** Downloads
+
+#+BEGIN_SRC elisp
+;; function to get a file from url
+   (url-copy-file "http://www.star.bris.ac.uk/bjm/emacs_tutorial.org" (expand-file-name "~/emacs_tutorial.org") 1)
+#+END_SRC
+
+#+BEGIN_SRC elisp
+;; Download Org Mode - Organizing Your Life In Plain Text
+   (url-copy-file "http://doc.norang.ca/org-mode.org" (expand-file-name "~/Documents/repositorios/loqueaprendo/organizing_your_life_in_plain_text.org") 1)
+
+#+END_SRC
+
+#+RESULTS:
+: t
+
+#+BEGIN_SRC elisp
+;; downloading worg.org
+   (url-copy-file "https://orgmode.org/worg/index.org.html" (expand-file-name "~/Documents/repositorios/loqueaprendo/worg.org") 1)
+
+#+END_SRC 
+
+#+RESULTS:
+: t
+
+
+** Ejecutar código elisp entre etiquetas SRC: C-c C-c. 
+
+** [[https://ftp.gnu.org/old-gnu/Manuals/emacs/html_node/emacs_472.html][Finding function and Variables Definition]]
+
+=M-x find-function RET function RET=
+    Find the definition of function in its source file. 
+=M-x find-variable RET variable RET=
+    Find the definition of variable in its source file. 
+=M-x find-function-on-key RET key=
+    Find the definition of the function that key invokes. 
+
+** [[https://ftp.gnu.org/old-gnu/Manuals/emacs/html_node/emacs_334.html#SEC334][W.2 Tags Tables]]
+
+** [[https://emacsredux.com/blog/2014/06/18/quickly-find-emacs-lisp-sources/][Quickly find Emacs Lisp sources]]
+
+   - _C-h f_ and then the name of the function (and then <RET>).
+   - you can get the full documentation for a variable by typing _C-h v_ and then the name of the variable (and then <RET>).
+   - Also, _describe-function_ will tell you the location of the function definition.
+   - if you want to see a function in its original source file, you can use the _xref-find-definitions_ function to jump to it.
+   - For example, _xref-find-definitions_ will jump to the various nodes in the Texinfo source file of this document (provided that you've run the etags utility to record all the nodes in the manuals that come with Emacs; see [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Create-Tags-Table.html#Create-Tags-Table][Create Tags Table]]).
+   - To use the _xref-find-definitions_ command, type _M-._
+   - The _C-h p_ command lets you search the standard Emacs Lisp libraries by topic keywords
+   - _xref-find-definitions_ will jump to the various nodes in the Texinfo source file of this document (provided that you've run the etags utility to record all the nodes in the manuals that come with Emacs; see [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Create-Tags-Table.html#Create-Tags-Table][Creating Tags Tables]]).
+
+** [[https://web.cs.elte.hu/local/texinfo/elisp-intro/emacs-lisp-intro_63.html][A Simplified  beginning-of-buffer Definition]]
+   
+   #+BEGIN_SRC elisp
+   
+   (defun simplified-beginning-of-buffer ()
+   "Move point to the beginning of the buffer; 
+   leave mark at previous position."
+     (interactive)
+     (push-mark)
+     (goto-char (point-min)))
+
+   #+END_SRC
+** [[][Code Characters for interactive]
+* Emacs 
+
+** Refresh Dired: C-x b g
+** GoTo
+
+  - GoTo line: M-g g
+  - GoTo line: M-x goto-line → move cursor to a given line position.
+  - GoTo Buffer Position: M-g c
+  - GoTo Begining Buffer: M-<
+  - GoTo End Buffer; M->
+
+** Line Numbers
+
+  - Show line numbers: 
+    - M-x global-display-line-numbers-mode → show line numbers in all buffers
+    - M-x display-line-numbers-mode → show line numbers in current buffer.
+    - M-x linum-mode → toggle line number in current.
+    - M-x global-linum-mode → toggle line number in all buffers.
+
+** [[https://www.gnu.org/software/emacs/manual/html_node/org/Handling-links.html][Handling links]]
+** Use-Package. 
+   - [[https://www.smoothterminal.com/articles/setting-up-package-management-with-use-package][Setting up package management with use-package - blog - Josh Adams - Published on: 2017-05-16 ]]
+     
+#+BEGIN_SRC elisp
+
+;; tell emacs do not initialize the package tool when it is loaded
+(setq package-enable-at-startup nil)     
+
+;; load emacs' built-in package tool
+(require 'package)
+
+;; provide remote package sources
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")
+                         ("org" . "http://orgmode.org/elpa/")))
+
+;; tell built-in package tool to get started
+(package-initialize)
+
+;; Bootstrap `use-package': if not installed, refresh remotes, install it.
+;; https://github.com/jwiegley/use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; for now accept that this is magic
+(eval-when-compile
+  (require 'use-package))
+
+;; get stable versions of packages unless otherwise specified
+(setq use-package-always-pin "melpa-stable")
+
+;; always make sure you have the package
+(setq use-package-always-ensure t)
+
+;; Examples: Install elixir-mode and sqlup mode
+;; So, let's install elixir-mode. 
+(use-package elixir-mode)
+
+;; sqlup_mode
+(use-package sqlup-mode ;; upcase SQL keywords as you type
+  :init
+  (add-hook 'sql-mode-hook 'sqlup-mode) ;; in SQL source files
+  (add-hook 'sql-interactive-mode-hook 'sqlup-mode)) ;; in SQL REPLs
+
+#+END_SRC
+
+** [[https://www.gnu.org/software/emacs/download.html][Install Emacs with MSYS2]]
+   
+   - [[http://www.msys2.org/][MSYS2 installer. Download and Install. Official Site]]
+   - MSYS2 users can install Emacs (64bits build) with the following:_pacman -S mingw-w64-x86_64-emacs_ For the 32bits build, evaluate: _pacman -S mingw-w64-i686-emacs_
+   - [[https://github.com/msys2/MINGW-packages/issues/832][Install mingw-git using pacman]]
+   - [[https://github.com/git-for-windows/git/wiki/Install-inside-MSYS2-proper][Install inside MSYS2 proper]]
+     Please note that this scenario is not officially supported by Git for Windows.
+   - [[https://github.com/msys2/msys2/wiki/How-does-MSYS2-differ-from-Cygwin][How does MSYS2 differ from Cygwin]]
+
+** Install pdf-tools
+*** [[https://github.com/politza/pdf-tools][pdf-tools github repository]]
+** How to insert into the text buffer of a file the current date and time?
+   - _C-u M-!_ Date. Insert shell command
+** Init File 
+   - [[https://www.emacswiki.org/emacs/InitFile][Emacs Wiki - Init File]]
+
+* Windows 10
+
+** Persistent flag from LocalBridge.exe program
+   
+   Yes the store version. The store might be disabled but I would not expect a continuous error to popup. If you aren't using it as you mentioned then try running this powershell command from within the users profile to uninstall the MSOffice UWP app for that user.
+   
+   #+BEGIN_SRC Powershell
+   get-appxpackage | ? {$_.packagefullname -like '*MicrosoftOfficeHub*'} | remove-appxpackage
+   #+END_SRC
+   
+   [[https://community.spiceworks.com/topic/2242998-one-user-experiencing-constant-permission-error][Source]]
+
