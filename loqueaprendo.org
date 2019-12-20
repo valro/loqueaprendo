@@ -134,6 +134,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - Introducir en Navegador web: 192.168.1.150:8080
 
 * Linux Commands
+
 ** [[https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/][Listing Running Services Under SystemD in Linux]]
 
    - Listing running services
@@ -163,6 +164,58 @@ Run org-capture, and we now have our new w template (but we lost our default). T
      #+END_SRC
    
    - firewall
+
+
+** Linux Networking Commands 
+
+*** [[https://geekflare.com/linux-networking-commands/][10 Useful Linux Networking Commands]]
+    
+    1. Ifconfig
+    2. traceroute
+    3. dig (Domain Information Groper)
+    4. telnet
+       #+BEGIN_SRC 
+       telnet connect destination host:port via a telnet protocol if connection establishes means connectivity between two hosts is working fine.
+       #+END_SRC
+    5. nslookup
+    6. netstat
+    7. w
+    8. nmap
+    9. scp
+    10. Enable/Disable Network Interface
+
+*** [[https://haydenjames.io/linux-networking-commands-scripts/][Linux Networking commands and scripts]]
+
+    This list of Linux Networking commands and scripts, will receive ongoing updates, similar to the other lists on [[https://haydenjames.io/linux-benchmark-scripts-tools/][this blog…]]
+       
+* MSYS2-MINGW 
+
+** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]
+
+*** Adding MSYS2 to your PATH variable
+   
+    The MSYS2 tools (and that includes tools like grep) won’t be available if you don’t launch them through the Start Menu shortcut. To make them available everywhere, you need to add them to the “Path” variable like so:
+    1. Open the Run box by pressing Windows + R, and type in _systempropertiesadvanced_.
+    2. Click on the “Environment Variables” button.
+    3. In the “System Variables” section, scroll down and double-click on the “Path” variable.
+    4. If you’re on Windows 10, add the _C:\msys64\usr\bin_, and move this entry to the top.
+
+*** The difference between MinGW32/64 and MSYS2
+    
+    From the MinGW shell, run:
+    #+BEGIN_SRC sh
+    declare > mingw-config
+    #+END_SRC
+    Again, run this from the MSYS2 shell:
+    #+BEGIN_SRC sh
+    declare > msys2-config
+    #+END_SRC
+    
+    Now, you can diff these files to see the differences in environment variables. Here we’ve only shown what has changed; the actual diff is a whole lot longer.
+    #+BEGIN_SRC sh
+    diff mingw-config msys2-config
+    #+END_SRC
+
 
 * Tomcat
 
