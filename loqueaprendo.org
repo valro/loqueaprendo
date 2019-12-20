@@ -128,7 +128,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    ssh pi@192.168.1.150
    #+END_SRC
    - introducir contraseña
-   Password: ValGalSan240907
+   Password: ValGalSanddmmyy
 ** Visualizar página Tomcat
    - El servicio tomcat está activo por defecto
    - Introducir en Navegador web: 192.168.1.150:8080
@@ -289,7 +289,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
     4. Introducimos en el navegador: 192.168.1.150:8080
 
-    5. Seleccionamos "Web Application Manager". Usuario:vgs contraseña: "ValGalSan240907" y...voilà.
+    5. Seleccionamos "Web Application Manager". Usuario:vgs contraseña: "ValGalSanddmmyy" y...voilà.
 
       
 * Elisp
