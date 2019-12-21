@@ -188,6 +188,17 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
     This list of Linux Networking commands and scripts, will receive ongoing updates, similar to the other lists on [[https://haydenjames.io/linux-benchmark-scripts-tools/][this blog…]]
        
+
+** [[https://dev.to/awwsmm/101-bash-commands-and-tips-for-beginners-to-experts-30je#intermediate][101 Bash Commands and Tips for Beginners to Experts - Andrew - Blog interesante - Jan 13 Updated on Sep 25, 2019 ・40 min read]]
+
+   1. _ncdu_ ((NCurses Disk Usage) provides a navigable overview of file space usage, like an improved du. It opens a read-only vim-like window (press q to quit))
+   2. _top_ / _htop_ 
+      top displays all currently-running processes and their owners, memory usage, and more. htop is an improved, interactive top. (Note: you can pass the -u username flag to restrict the displayed processes to only those owner by username.)
+   3. REPLs
+      A REPL is a Read-Evaluate-Print Loop, similar to the command line, but usually used for particular programming languages.
+      You can open the Python REPL with the python command (and quit with the quit() function):
+   4. 
+
 * MSYS2-MINGW 
 
 ** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]
