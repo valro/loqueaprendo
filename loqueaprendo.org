@@ -197,7 +197,12 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    3. REPLs
       A REPL is a Read-Evaluate-Print Loop, similar to the command line, but usually used for particular programming languages.
       You can open the Python REPL with the python command (and quit with the quit() function):
-   4. 
+   4. Environment Variables and Aliases
+      
+      *Environment variables* (sometimes shortened to "env vars") are persistent variables that can be created and used within your bash shell. They are defined with an equals sign (=) and used with a dollar sign ($). You can see all currently-defined env vars with _printenv_:
+      
+      *Aliases*
+ 
 
 * MSYS2-MINGW 
 
@@ -226,6 +231,22 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     #+BEGIN_SRC sh
     diff mingw-config msys2-config
     #+END_SRC
+
+
+* Bash Ubuntu in Windows 10
+
+** Change directory
+   
+   WSL (Windows Subsystem Linux) stores your Windows drives in the /mnt folder, with the name of the drive as a subfolder.
+   For example your C:\ drive will be present at /mnt/c/ for you to use.
+
+   Keeping this in mind, you can swap to your specific folder like so:
+
+   #+BEGIN_SRC sh
+   cd /mnt/c/users/admi00895tq
+   #+END_SRC
+
+** [[https://github.com/hubisan/emacs-wsl#enable-the-windows-subsystem-for-linux][Install and run emacs with the Windows Subsystem for Linux (WSL) in Windows 10.]]
 
 
 * Tomcat
@@ -464,4 +485,113 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+END_SRC
    
    [[https://community.spiceworks.com/topic/2242998-one-user-experiencing-constant-permission-error][Source]]
+
+
+* Hashes in books
+
+The *intra hash* is relatively strict and takes into account the fields /title, author, editor, year, entrytype, journal, booktitle, volume, and number/. 
+This allows a user to have articles with the same title from the same authors in the same year but in different volumes (e.g. a technical report and the corresponding journal article).
+
+In contrast, the *inter hash* is less specific and only includes title, year, and author or editor (depending on what the user has entered).
+
+In both hashes, all fields which are taken into account are normalized, i.e., certain special characters are removed, whitespace and author/editor names normalized. The latter is done by concatenating the first letter of the first name by a dot with the last name, both in lower case. Persons are then sorted alphabetically by this string and concatenated by a colon.
+
+Source code
+
+The computation of the hashes is done in the class 
+_org.bibsonomy.model.util.SimHash_
+It contains the following code to compute the intra hash:
+
+#+BEGIN_SRC java
+
+public static String getSimHash2(final BibTex bibtex) {
+       return StringUtils.getMD5Hash(StringUtils.removeNonNumbersOrLettersOrDotsOrSpace(bibtex.getTitle())     + " " + 
+          StringUtils.removeNonNumbersOrLettersOrDotsOrSpace(PersonNameUtils.serializePersonNames(bibtex.getAuthor(), false))    + " " + 
+          StringUtils.removeNonNumbersOrLettersOrDotsOrSpace(PersonNameUtils.serializePersonNames(bibtex.getEditor(), false))    + " " + 
+          StringUtils.removeNonNumbersOrLettersOrDotsOrSpace(bibtex.getYear())      + " " + 
+          StringUtils.removeNonNumbersOrLettersOrDotsOrSpace(bibtex.getEntrytype()) + " " + 
+          StringUtils.removeNonNumbersOrLettersOrDotsOrSpace(bibtex.getJournal())   + " " + 
+          StringUtils.removeNonNumbersOrLettersOrDotsOrSpace(bibtex.getBooktitle()) + " " +
+          StringUtils.removeNonNumbersOrLetters(bibtex.getVolume())                 + " " +
+          StringUtils.removeNonNumbersOrLetters(bibtex.getNumber())
+       );
+    }
+
+#+END_SRC
+
+The following code is responsible to compute the inter hash:
+
+#+BEGIN_SRC java
+
+public static String getSimHash1(final BibTex publication) {
+    if (!present(StringUtils.removeNonNumbersOrLetters(PersonNameUtils.serializePersonNames(publication.getAuthor())))) {
+       // no author set --> take editor
+       return StringUtils.getMD5Hash(getNormalizedTitle(publication.getTitle()) + " " +
+          PersonNameUtils.getNormalizedPersons(publication.getEditor())            + " " +
+          getNormalizedYear(publication.getYear()));
+    }
+    // author set
+    return StringUtils.getMD5Hash(getNormalizedTitle(publication.getTitle()) + " " + 
+         PersonNameUtils.getNormalizedPersons(publication.getAuthor())            + " " + 
+         getNormalizedYear(publication.getYear()));
+}
+
+To see how further help functions work, have a look at the [[https://bitbucket.org/bibsonomy/bibsonomy/src/stable/bibsonomy-model/src/main/java/org/bibsonomy/model/util/][Bitbucket Repository]]
+
+#+END_SRC
+
+Reference: [[https://www.bibsonomy.org/help_en/InterIntraHash][The blue social bookmark and publication sharing system - BibSonomy]]
+
+
+* Books
+
+** Clean Code:  A Handbook of Agile Software Craftsmanship
+
+*** Bib reference
+
+#+BEGIN_SRC bibtex
+
+@book{robertmartin2008,
+ Author = {Robert C. Martin},
+ title = {Clean Code: A Handbook of Agile Software Craftsmanship},
+ description = {Clean Code: A Handbook of Agile Software Craftsmanship (Book, 2008)},
+ publisher = {Prentice Hall},
+ interhash = {6488ae2655276e5edb10be6a7a858570},
+ intrahash = {7c29a19506e41e3806b85395d6edf2ea},
+ year = {2008},
+ month = {aug},
+ isbn = {9780132350884},
+ url = {https://www.xarg.org/ref/a/0132350882/}
+}
+
+#+END_SRC
+
+** Preface
+
+“Honesty in small things is not a small thing.”
+
+God is in the details, said the architect Ludwig mies van der Rohe
+
+Why? Because small things matter.
+
+One of the major pillars of  TPM_ (Totasl Production Maintenance) is the set of so-called 5S principles
+
+The 5S philosophy comprises these concepts:
+
+- Seiri, or organization (think “/sort/” in English). Knowing where things are—using approaches such as suitable naming—is crucial. You think naming identifiers isn’t important? Read on in the following chapters.
+
+- Seiton, or tidiness (think “/systematize/” in English). There is an old American saying: A place for everything, and everything in its place. A piece of code should be where you expect to find it—and, if not, you should re-factor to get it there.
+
+- Seiso, or cleaning (think “/shine/” in English): Keep the workplace free of hanging wires, grease, scraps, and waste. What do the authors here say about littering your code with comments and commented-out code lines that capture history or wishes for the future? Get rid of them.
+
+- Seiketsu, or standardization: The group agrees about how to keep the workplace clean.
+
+- Shutsuke, or discipline ( self-discipline). This means having the discipline to follow the practices and to frequently reflect on one’s work and be willing to change.
+
+I think it’s important to note that the Danish wisdom advises us not just to pay attention to small things, but also to be  honest  in small things. This means being honest to the code, honest to our colleagues about the state of our code and, most of all, being honest with ourselves about our code.
+
+Be prepared to work hard while reading this book. This is not a “feel good” book that you can read on an airplane and finish before you land. This book will make you work,  and work hard. What kind of work will you be doing? You’ll be reading code—lots of code.
+
+** Chapter 1. Clean Code
+
 
