@@ -566,7 +566,7 @@ Reference: [[https://www.bibsonomy.org/help_en/InterIntraHash][The blue social b
 
 #+END_SRC
 
-** Preface
+*** Preface
 
 “Honesty in small things is not a small thing.”
 
@@ -592,6 +592,37 @@ I think it’s important to note that the Danish wisdom advises us not just to p
 
 Be prepared to work hard while reading this book. This is not a “feel good” book that you can read on an airplane and finish before you land. This book will make you work,  and work hard. What kind of work will you be doing? You’ll be reading code—lots of code.
 
-** Chapter 1. Clean Code
+*** Chapter 1. Clean Code
 
+
+** The Linux Command Line
+
+*** Bibtext reference 
+
+#+BEGIN_SRC bibtex
+
+@book{williamshottsjr.2012,
+ Author = {William E. Shotts Jr.},
+ title = {The Linux Command Line: A Complete Introduction},
+ description = {The Linux Command Line: A Complete Introduction (Book, 2012)},
+ publisher = {No Starch Press, Incorporated},
+ interhash = {e28c39efbfbae594325b72cb5c52a1d3},
+ intrahash = {fc00c4f75a45fb08e0441c83c7bcc2dd},
+ year = {2012},
+ month = {jan},
+ isbn = {9781593273897},
+ url = {https://www.xarg.org/ref/a/1593273894/}
+}
+
+#+END_SRC
+
+*** Chapter 2
+    
+    - Changing current directory: _cd_
+      
+      - Absolute pathnames. Ex: _cd /usr/bin_
+
+      - Relative pathnames. Ex: _cd ./directory inside current directory. cd ../directory into the current parent directory.
+
+    - Important facts about file names
 
