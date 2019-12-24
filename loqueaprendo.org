@@ -120,6 +120,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 -----
 
+
 * Raspberry home
 
 ** Conexión con ssh
@@ -132,6 +133,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** Visualizar página Tomcat
    - El servicio tomcat está activo por defecto
    - Introducir en Navegador web: 192.168.1.150:8080
+
 
 * Linux Commands
 
@@ -389,6 +391,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
    #+END_SRC
 ** [[][Code Characters for interactive]
+
 * Emacs 
 
 ** Refresh Dired: C-x b g
@@ -474,6 +477,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** Init File 
    - [[https://www.emacswiki.org/emacs/InitFile][Emacs Wiki - Init File]]
 
+
 * Windows 10
 
 ** Persistent flag from LocalBridge.exe program
@@ -543,6 +547,16 @@ To see how further help functions work, have a look at the [[https://bitbucket.o
 Reference: [[https://www.bibsonomy.org/help_en/InterIntraHash][The blue social bookmark and publication sharing system - BibSonomy]]
 
 
+* CSS Stylesheet
+
+** [[https://www.w3schools.com/Css/default.asp][w3schools. CSS Tutorial]]
+
+
+* Calibre
+** CSS Style
+   [[https://www.mobileread.com/forums/showthread.php?t=51500][Custom CSS Stylesheets for Calibre's Viewer]]
+
+
 * Books
 
 ** Clean Code:  A Handbook of Agile Software Craftsmanship
@@ -593,8 +607,10 @@ I think it’s important to note that the Danish wisdom advises us not just to p
 Be prepared to work hard while reading this book. This is not a “feel good” book that you can read on an airplane and finish before you land. This book will make you work,  and work hard. What kind of work will you be doing? You’ll be reading code—lots of code.
 
 *** Chapter 1. Clean Code
-
-
+    
+    
+    
+    
 ** The Linux Command Line
 
 *** Bibtext reference 
@@ -626,3 +642,12 @@ Be prepared to work hard while reading this book. This is not a “feel good”
 
     - Important facts about file names
 
+    - ls—List directory contents even specify multiple directories: ls ~ /usr
+      #+BEGIN_SRC sh
+      ls -lt
+      ls -lt --reverse
+      #+END_SRC
+
+    - file—Determine file type.
+
+    - less—View file contents.
