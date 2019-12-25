@@ -392,6 +392,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+END_SRC
 ** [[][Code Characters for interactive]
 
+
 * Emacs 
 
 ** Refresh Dired: C-x b g
@@ -627,7 +628,7 @@ Be prepared to work hard while reading this book. This is not a “feel good”
  year = {2012},
  month = {jan},
  isbn = {9781593273897},
- url = {https://www.xarg.org/ref/a/1593273894/}
+ url = {http://linuxcommand.sourceforge.net/index.php}
 }
 
 #+END_SRC
@@ -651,3 +652,27 @@ Be prepared to work hard while reading this book. This is not a “feel good”
     - file—Determine file type.
 
     - less—View file contents.
+*** Chapter_5. Working with commands
+    
+    - type – Indicate how a command name is interpreted
+    - which – Display which executable program will be executed
+    - help – Get help for shell builtins
+    - man – Display a command's manual page
+    - apropos – Display a list of appropriate commands
+    - info – Display a command's info entry
+    - whatis – Display one-line manual page descriptions
+    - alias – Create an alias for a command
+
+      #+BEGIN_SRC sh
+      type cp
+      type ls
+      type type
+
+      which ls
+      which cd
+
+      help cd
+      
+      
+      #+END_SRC
+
