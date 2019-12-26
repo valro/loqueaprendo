@@ -558,6 +558,15 @@ Reference: [[https://www.bibsonomy.org/help_en/InterIntraHash][The blue social b
    [[https://www.mobileread.com/forums/showthread.php?t=51500][Custom CSS Stylesheets for Calibre's Viewer]]
 
 
+* Firefox
+
+** [[https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly#w_windows-tabs][Keyboard Shortcuts]]
+  
+   - Close Tab _Ctrl + w
+   - Close Window--> Ctrl + Shift + w
+   - New Tab --> Ctrl + T
+  
+
 * Books
 
 ** Clean Code:  A Handbook of Agile Software Craftsmanship
@@ -608,10 +617,127 @@ I think it’s important to note that the Danish wisdom advises us not just to p
 Be prepared to work hard while reading this book. This is not a “feel good” book that you can read on an airplane and finish before you land. This book will make you work,  and work hard. What kind of work will you be doing? You’ll be reading code—lots of code.
 
 *** Chapter 1. Clean Code
+
+**** There Will Be Code
+     - Remember that code is really the language in which we ultimately express the require-
+ments. We may create languages that are closer to the requirements. We may create tools
+that help us parse and assemble those requirements into formal structures. But we will
+never eliminate necessary precision—so there will always be code.
+
+**** Bad Code
+     
+     Of course you have been impeded by bad code. So then—why did you write it?
+     Were you trying to go fast? Were you in a rush? Probably so. Perhaps you felt that you
+     didn’t have time to do a good job; that your boss would be angry with you if you took the
+     time to clean up your code. Perhaps you were just tired of working on this program and
+     wanted it to be over. Or maybe you looked at the backlog of other stuff that you had prom-
+     ised to get done and realized that you needed to slam this module together so you could
+     move on to the next. We’ve all done it.
+
+**** The Total Cost of Owning a Mess
+
+     As the mess builds, the productivity of the team continues to decrease, asymptotically
+     approaching zero.
+
+**** The Grand Redesign in the Sky
     
+     If you have experienced even one small part of the story I just told, then you already
+know that spending time keeping your code clean is not just cost effective; it’s a matter of
+professional survival.
+
+**** Attitude
+
+     We blather about stupid managers and intolerant customers and useless marketing types
+and telephone sanitizers. But the fault, dear Dilbert, is not in our stars, but in ourselves.
+We are unprofessional.
+     So too it is unprofessional for programmers to bend to the will of managers who don’t
+understand the risks of making messes.
+
+**** The Primal Conundrum
+
+     The only way to make the deadline—the only way to go fast—is to keep the code as clean as possible at all times.
+
+**** The Art of Clean Code?
+     
+     So too being able to recognize clean code from dirty code does not mean that we know how to write clean code!
+     Writing clean code requires the disciplined use of a myriad little techniques applied
+     through a painstakingly acquired sense of “cleanliness.”
+     In short, a programmer who writes clean code is an artist who can take a blank screen
+     through a series of transformations until it is an elegantly coded system.
+
+**** What Is Clean Code?
+
+     *Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language:*
+     
+     "I like my code to be elegant and efficient. The logic should be straightforward to make it hard 
+     for bugs to hide, the dependencies minimal to ease maintenance, error handling complete
+     according to an articulated strategy, and performance close to optimal so as not to tempt
+     people to make the code messy with unprincipled optimizations. Clean code does one thing
+     well."
+     
+     /Elegant/. /Pleasing/. /Efficiency/
+     Bjarne also mentions that error handing should be complete. This goes to the disci-
+     pline of paying attention to details. Abbreviated error handling is just one way that pro-
+     grammers gloss over details.
+     
+     *Grady Booch, author of Object Oriented Analysis and Design with
+     Applications*
+
+     "Clean code is simple and direct. Clean code
+     reads like well-written prose. Clean code never
+     obscures the designer’s intent but rather is full
+     of crisp abstractions and straightforward lines
+     of control."
+
+     /readability perspective/
+
+     *“Big” Dave Thomas, founder of OTI, godfather of the Eclipse strategy*
+
+     "Clean code can be read, and enhanced by a
+     developer other than its original author. It has
+     unit and acceptance tests. It has meaningful
+     names. It provides one way rather than many
+     ways for doing one thing. It has minimal depen-
+     dencies, which are explicitly defined, and pro-
+     vides a clear and minimal API. Code should be
+     literate since depending on the language, not all
+     necessary information can be expressed clearly
+     in code alone."
+
+     /Dave asserts that clean code makes it easy for other people to enhance it./
+     /Smaller is better./
+
+     /Dave also says that code should be literate./
+
+     *Michael Feathers, author of Working Effectively with Legacy Code*
+
+     "I could list all of the qualities that I notice in
+     clean code, but there is one overarching quality
+     that leads to all of them. Clean code always
+     looks like it was written by someone who cares.
+     There is nothing obvious that you can do to
+     make it better. All of those things were thought
+     about by the code’s author, and if you try to
+     imagine improvements, you’re led back to
+     where you are, sitting in appreciation of the
+     code someone left for you—code left by some-
+     one who cares deeply about the craft."
+
+     /How to Care for Code/
+
+     *Ron Jeffries, author of Extreme Programming Installed and Extreme Programming 
+     Adventures in C#*
     
-    
-    
+     *Ward Cunningham, inventor of Wiki, inventor of Fit, coinventor of eXtreme Programming. Motive force behind Design Patterns. Smalltalk and OO
+     thought leader. The godfather of all those who care about code.* 
+
+**** The Boy Scout Rule
+
+     The Boy Scouts of America have a simple rule that we can apply to our profession.
+Leave the campground cleaner than you found it
+
+     
+
 ** The Linux Command Line
 
 *** Bibtext reference 
