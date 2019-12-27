@@ -391,7 +391,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
    #+END_SRC
 ** [[][Code Characters for interactive]
-
+** [[https://www.emacswiki.org/emacs/FrameSize][FrameSize -- At Emacs Startup, Programmaticaly (e.g. in your init file), Both Interactively and Programmatically]]
 
 * Emacs 
 
@@ -565,8 +565,12 @@ Reference: [[https://www.bibsonomy.org/help_en/InterIntraHash][The blue social b
    - Close Tab _Ctrl + w
    - Close Window--> Ctrl + Shift + w
    - New Tab --> Ctrl + T
+   - Move Tab Left --> Ctrl + Shift + Page Up
+   - Move Tab Right --> Ctrl + Shift + Page Down
+   - Go one Tab to the Left --> Ctrl + Shift + Tab
+   - Go one Tab to the Right --> Ctrl + Tab
+     *Nota: En Preferences hay que quitar el /tic/ en Ctrl+Tab cycles*
   
-
 * Books
 
 ** Clean Code:  A Handbook of Agile Software Craftsmanship
@@ -802,4 +806,6 @@ Leave the campground cleaner than you found it
 
       
       #+END_SRC
+
+
 
