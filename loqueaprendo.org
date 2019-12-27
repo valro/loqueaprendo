@@ -1,6 +1,6 @@
 #+TITLE: Lo que aprendo. elisp
 #+AUTHOR: valro
-#+DATE: 06/12/2019
+#+DATE: 27/12/2019
 ;;#+STARTUP: showall 
 
 ------
