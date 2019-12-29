@@ -206,6 +206,9 @@ Run org-capture, and we now have our new w template (but we lost our default). T
       *Aliases*
  
 
+** [[https://www.howtogeek.com/413213/how-to-kill-processes-from-the-linux-terminal/][How to Kill Processes From the Linux Terminal]]
+
+   
 * MSYS2-MINGW 
 
 ** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]
@@ -393,7 +396,8 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** [[][Code Characters for interactive]
 ** [[https://www.emacswiki.org/emacs/FrameSize][FrameSize -- At Emacs Startup, Programmaticaly (e.g. in your init file), Both Interactively and Programmatically]]
 
-* Emacs 
+
+* Emacs  
 
 ** Refresh Dired: C-x b g
 ** GoTo
@@ -476,7 +480,14 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** How to insert into the text buffer of a file the current date and time?
    - _C-u M-!_ Date. Insert shell command
 ** Init File 
+
    - [[https://www.emacswiki.org/emacs/InitFile][Emacs Wiki - Init File]]
+.
+
+
+* Emacs Web Browser
+
+** [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
 
 
 * Windows 10
@@ -571,6 +582,7 @@ Reference: [[https://www.bibsonomy.org/help_en/InterIntraHash][The blue social b
    - Go one Tab to the Right --> Ctrl + Tab
      *Nota: En Preferences hay que quitar el /tic/ en Ctrl+Tab cycles*
   
+
 * Books
 
 ** Clean Code:  A Handbook of Agile Software Craftsmanship
@@ -806,6 +818,18 @@ Leave the campground cleaner than you found it
 
       
       #+END_SRC
+
+
+
+
+* Texinfo
+
+  - [[https://www.linuxjournal.com/article/2840][What's GNU: Texinfo - LINUX Journal - Closed on August 2019]]
+
+  - [[https://en.wikipedia.org/wiki/Texinfo][Wikipedia - Texinfo]]
+
+  - [[https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html#SEC_Contents][GNU: Texinfo 6.7]]
+
 
 
 
