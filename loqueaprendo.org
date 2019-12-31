@@ -72,6 +72,7 @@ and I don’t use the org-cycle-agenda-files that is usually bound to that key c
 
 ** [[https://orgmode.org/worg/][Hello Oreg, The Org Mode Community]]
 
+
 ** org-capture
 
 #+BEGIN_SRC elisp
@@ -119,6 +120,14 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 | w | Work-related Task | entry | (file ~/Dropbox/notes/work.org) | * TODO %? | :empty-lines | 1 |
 
 -----
+
+
+** [[https://orgmode.org/manual/Evaluating-code-blocks.html][Evaluating code blogs]]
+
+   C-c C-c
+   C-c C-v e
+
+   [[https://orgmode.org/manual/Languages.html#Languages][Languages Identifiers]]
 
 
 * Raspberry home
@@ -417,6 +426,22 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     - M-x global-linum-mode → toggle line number in all buffers.
 
 ** [[https://www.gnu.org/software/emacs/manual/html_node/org/Handling-links.html][Handling links]]
+   
+   C-c C-x C-n     (org-next-link)
+   C-c C-x C-p     (org-previous-link)
+
+   #+BEGIN_SRC emacs-lisp
+
+          (add-hook 'org-load-hook
+            (lambda ()
+              (define-key org-mode-map "\C-n" 'org-next-link)
+              (define-key org-mode-map "\C-p" 'org-previous-link)))   
+   
+   #+END_SRC
+
+   #+RESULTS:
+   | lambda | nil | (define-key org-mode-map  (quote org-next-link)) | (define-key org-mode-map  (quote org-previous-link)) |
+   
 ** Use-Package. 
    - [[https://www.smoothterminal.com/articles/setting-up-package-management-with-use-package][Setting up package management with use-package - blog - Josh Adams - Published on: 2017-05-16 ]]
      
@@ -481,8 +506,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - _C-u M-!_ Date. Insert shell command
 ** Init File 
 
-   - [[https://www.emacswiki.org/emacs/InitFile][Emacs Wiki - Init File]]
-.
+   - [[https://www.emacswiki.org/emacs/InitFile][Emacs Wiki - Init 
 
 
 * Emacs Web Browser
@@ -822,6 +846,166 @@ Leave the campground cleaner than you found it
 
 
 
+** [[https://www.masteringemacs.org/article/beginners-guide-to-emacs][An Emacs Tutorial: Beginner’s Guide to Emacs by Mickey Petersen]]
+
+   #+BEGIN_SRC tex
+
+   @book{madsenpirie2006,
+   Author = {Madsen Pirie},
+   title = {How to Win Every Argument: The Use and Abuse of Logic},
+   description = {How to Win Every Argument: The Use and Abuse of Logic (Book, 2006)},
+   publisher = {Continuum Intl Pub Group},
+   interhash = {561ad6fe71611fda3f4b7eceed37261e},
+   intrahash = {f0e906ae7b95d49be7fbac5b80c3e6c4},
+   year = {2006},
+   month = {jun},
+   isbn = {0826490069},
+   url = {https://masteringemacs.org/}
+   
+   }
+   
+   #+END_SRC    
+*** Modes
+
+**** an excellent package for most web-focused languages: [[https://www.emacswiki.org/emacs/nXhtml][nXhtml - Emacs wiki]]
+**** To get a complete list of all modes running and all the keybindings they introduce, type C-h m
+
+*** Evaluating changes and new code
+
+     + M-x eval-region
+     + M-x eval-buffer
+     + To evaluate one piece of code individually: C-M-x
+     + To evaluate block of code in org-mode: C-c C-c
+
+*** Line numbers
+
+    - to enable line numbers in the margin of the active buffer by running _M-x linum-mode_
+    - To enable it globally for all buffers run _M-x global-linum-mode_
+    - To enable it globally and permanently add this to your .emacs file: _(global-linum-mode 1)_
+    - Now you can customize it further with: _M-x customize-group RET linum RET_
+
+*** "Interactively Do Things" IDO Mode
+
+    Basically it makes switching between buffers (and optionally files) really easy as you simply type parts of a name and Ido will automatically narrow the list to just the ones matching the search text.
+    
+    I recommend you put this in your .emacs file:
+
+    #+BEGIN_SRC emacs-lisp
+
+    (ido-mode 1)
+    (setq ido-enable-flex-matching t)
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : t
+
+    IF you want Ido mode to work with C-x C-f (find-files) then add this as well:
+
+    #+BEGIN_SRC emacs-lisp
+
+    (setq ido-everywhere t)
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : t
+
+*** Hiding the splash screen and banner
+
+    Emacs by default will pester you with a splash screen and a message in the echo area. To disable both, and have emacs default to its *scratch* buffer, add this to your .emacs:
+
+    #+BEGIN_SRC emacs-lisp
+
+    (setq inhibit-startup-message t
+          inhibit-startup-echo-area-message t)  
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : t
+
+*** Rebinding the CAPS LOCK key
+
+    - MS Windows I recommend [[https://www.randyrants.com/2008/12/sharpkeys_30/][SharpKeys, a free tool that permanently rebinds the keys.]]
+    - On Linux you can use xmodmap or the ‘System -> Prefs -> Keyboard’ section if you’re using Ubuntu and Gnome.
+    - And finally, to make up for the fact that you no longer have a CAPS LOCK key I suggest learning the following keys instead:
+
+    To UPCASE A REGION type C-x C-u; to UPCASE a single word, type M-u
+    To downcase a region type C-x C-l; to downcase a single word, type M-l
+    To Capitalize A Region type M-x capitalize-region; to Capitalize a single word, type M-c
+
+*** Making Emacs Auto Indent
+    
+    I prefer to enable it globally and then disable it locally for each mode I do not like.
+    Here’s how you would enable it globally:
+    #+BEGIN_SRC emacs-lisp
+
+    (define-key global-map (kbd "RET") 'newline-and-indent)
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : newline-and-indent
+
+*** How do I customize the Font and Background    
+
+    - To customize the default font and color, type M-x customize-face RET default RET.
+    - To customize the default syntax highlighter (also called “font locking”) typeM-x customize-group RET font-lock-faces RET.
+
+*** Undoing changes
+    _C-x u_ or C_
+
+*** Loading New Packages
+
+*** Setting up your load path
+    
+    Your load path is where Emacs will search for files to load.
+    To inspect the load path you can type _C-h v load-path_ RET.
+    Add this to your .emacs, substituting the example path below with one of your own choosing. 
+    I recommend ~/.emacs.d/ or another sub-directory to your home directory.
+    #+BEGIN_SRC emacs-lisp
+
+    ;; You can change the path here
+    (add-to-list 'load-path "~/.emacs.d/myelisp")
+    
+    #+END_SRC
+
+    #+RESULTS:
+    | ~/.emacs.d/myelisp | ~/.emacs.d/ | c:/Users/Admi00895tq/.emacs.d/elpa/auctex-12.2.0/ | c:/Users/Admi00895tq/.emacs.d/elpa/auctex-12.2.0 | c:/Users/Admi00895tq/.emacs.d/elpa/cdlatex-4.7 | c:/Users/Admi00895tq/.emacs.d/elpa/org-bullets-0.2.4 | c:/Users/Admi00895tq/.emacs.d/elpa/pdf-tools-0.90 | c:/Users/Admi00895tq/.emacs.d/elpa/tablist-1.0 | c:/Users/Admi00895tq/.emacs.d/elpa/try-0.0.1 | c:/Users/Admi00895tq/.emacs.d/elpa/use-package-2.4 | c:/Users/Admi00895tq/.emacs.d/elpa/bind-key-2.4 | c:/Users/Admi00895tq/.emacs.d/elpa/which-key-3.3.1 | c:/msys64/mingw64/share/emacs/26.3/site-lisp | c:/msys64/mingw64/share/emacs/site-lisp | c:/msys64/mingw64/share/emacs/26.3/lisp | c:/msys64/mingw64/share/emacs/26.3/lisp/vc | c:/msys64/mingw64/share/emacs/26.3/lisp/url | c:/msys64/mingw64/share/emacs/26.3/lisp/textmodes | c:/msys64/mingw64/share/emacs/26.3/lisp/progmodes | c:/msys64/mingw64/share/emacs/26.3/lisp/play | c:/msys64/mingw64/share/emacs/26.3/lisp/org | c:/msys64/mingw64/share/emacs/26.3/lisp/nxml | c:/msys64/mingw64/share/emacs/26.3/lisp/net | c:/msys64/mingw64/share/emacs/26.3/lisp/mh-e | c:/msys64/mingw64/share/emacs/26.3/lisp/mail | c:/msys64/mingw64/share/emacs/26.3/lisp/leim | c:/msys64/mingw64/share/emacs/26.3/lisp/language | c:/msys64/mingw64/share/emacs/26.3/lisp/international | c:/msys64/mingw64/share/emacs/26.3/lisp/image | c:/msys64/mingw64/share/emacs/26.3/lisp/gnus | c:/msys64/mingw64/share/emacs/26.3/lisp/eshell | c:/msys64/mingw64/share/emacs/26.3/lisp/erc | c:/msys64/mingw64/share/emacs/26.3/lisp/emulation | c:/msys64/mingw64/share/emacs/26.3/lisp/emacs-lisp | c:/msys64/mingw64/share/emacs/26.3/lisp/cedet | c:/msys64/mingw64/share/emacs/26.3/lisp/calendar | c:/msys64/mingw64/share/emacs/26.3/lisp/calc | c:/msys64/mingw64/share/emacs/26.3/lisp/obsolete |
+
+    Now that you’ve added a custom path you can put your files in there. 
+    If your package has lots of files and its own directory structure 
+    you can go ahead and explicitly instead.
+
+*** Loading the package
+
+    Emacs can load files in one of several ways:
+      - By invoking _(require 'feature)_ if the package has _(provide 'feature)_ somewhere in the file.
+      - By explicitly calling _(load-library "packagefilename")_. 
+        I would recommend this unless you know the name of the feature provided by the package.
+	#+BEGIN_SRC emacs-lisp
+
+	(load-library "column-marker.el")
+	
+	#+END_SRC
+
+	#+RESULTS:
+	: t
+
+*** Testing that it worked
+
+    You can switch to the buffer *Messages* and see if you can spot any errors.
+    Now you’re ready to use your new package.
+
+*** Conclusion
+
+    I recommend reading my article series Effective Editing in Emacs.
+
+** Effective Editing I: Movement
+
+
+    
 * Texinfo
 
   - [[https://www.linuxjournal.com/article/2840][What's GNU: Texinfo - LINUX Journal - Closed on August 2019]]
