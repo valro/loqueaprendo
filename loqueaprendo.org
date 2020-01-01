@@ -218,6 +218,8 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** [[https://www.howtogeek.com/413213/how-to-kill-processes-from-the-linux-terminal/][How to Kill Processes From the Linux Terminal]]
 
    
+** [[http://xahlee.info/linux/linux_xmodmap_tutorial.html][xmodmap tutorial - xahlee.info]]
+
 * MSYS2-MINGW 
 
 ** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]
@@ -848,7 +850,7 @@ Leave the campground cleaner than you found it
 
 ** [[https://www.masteringemacs.org/article/beginners-guide-to-emacs][An Emacs Tutorial: Beginner’s Guide to Emacs by Mickey Petersen]]
 
-   #+BEGIN_SRC tex
+   #+BEGIN_SRC bibtex
 
    @book{madsenpirie2006,
    Author = {Madsen Pirie},
@@ -930,6 +932,7 @@ Leave the campground cleaner than you found it
     - MS Windows I recommend [[https://www.randyrants.com/2008/12/sharpkeys_30/][SharpKeys, a free tool that permanently rebinds the keys.]]
     - On Linux you can use xmodmap or the ‘System -> Prefs -> Keyboard’ section if you’re using Ubuntu and Gnome.
     - And finally, to make up for the fact that you no longer have a CAPS LOCK key I suggest learning the following keys instead:
+    - [[http://wiki.c2.com/?RemapCapsLock][Remap Caps Lock with xmodemap with examples]]
 
     To UPCASE A REGION type C-x C-u; to UPCASE a single word, type M-u
     To downcase a region type C-x C-l; to downcase a single word, type M-l
