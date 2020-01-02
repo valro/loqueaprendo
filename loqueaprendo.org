@@ -220,6 +220,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    
 ** [[http://xahlee.info/linux/linux_xmodmap_tutorial.html][xmodmap tutorial - xahlee.info]]
 
+
 * MSYS2-MINGW 
 
 ** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]
@@ -510,6 +511,12 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
    - [[https://www.emacswiki.org/emacs/InitFile][Emacs Wiki - Init 
 
+** Examining and Setting Variables
+   
+   - Display the value and documentation of variable var =(describe-variable)=:
+      C-h v var RET
+
+   - Change the value of variable var to value: *M-x set-variable <RET> var <RET> value <RET>*
 
 * Emacs Web Browser
 
@@ -609,7 +616,7 @@ Reference: [[https://www.bibsonomy.org/help_en/InterIntraHash][The blue social b
      *Nota: En Preferences hay que quitar el /tic/ en Ctrl+Tab cycles*
   
 
-* Books
+* Books Reading
 
 ** Clean Code:  A Handbook of Agile Software Craftsmanship
 
@@ -1005,7 +1012,8 @@ Leave the campground cleaner than you found it
 
     I recommend reading my article series Effective Editing in Emacs.
 
-** Effective Editing I: Movement
+
+** [[https://www.masteringemacs.org/article/effective-editing-movement][Effective Editing I: Movement]]
 
 
     
