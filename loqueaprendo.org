@@ -1,4 +1,4 @@
-#+TITLE: Lo que aprendo. elisp
+ #+TITLE: Lo que aprendo. elisp
 #+AUTHOR: valro
 #+DATE: 27/12/2019
 ;;#+STARTUP: showall 
@@ -6,12 +6,11 @@
 ------
 * Org Mode
 
+
 ** [[http://pragmaticemacs.com/emacs/wrap-text-in-an-org-mode-block/][WRAP TEXT IN AN ORG-MODE BLOCK]] 
 
-In my most recent post on org-mode, I talked about using blocks to mark text as being latex, 
-or source code and so on. I mentioned using the shortcuts like <e then TAB on a new line to create an empty block. 
-Sometimes it is handy to wrap existing text in a block, and the following function does that for the text 
-you have selected.
+In my most recent post on org-mode, I talked about using blocks to mark text as being latex, or source code and so on. I mentioned using the shortcuts like <e then TAB on a new line to create an empty block.
+Sometimes it is handy to wrap existing text in a block, and the following function does that for the text you have selected.
 
 This has been in my config file for ages and I can’t remember where it came from – I know I didn’t write it! 
 A bit of googleing suggests this could be the origin, but if anyone knows different, let me know.
@@ -19,7 +18,7 @@ A bit of googleing suggests this could be the origin, but if anyone knows differ
 I bind the function to C-< because it reminds me of the < shortcuts to create the blocks, 
 and I don’t use the org-cycle-agenda-files that is usually bound to that key combo.
 
-#+BEGIN_SRC emacs-elisp
+#+BEGIN_SRC elisp
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; function to wrap blocks of text in org templates                       ;;
@@ -433,7 +432,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    C-c C-x C-n     (org-next-link)
    C-c C-x C-p     (org-previous-link)
 
-   #+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC elisp
 
           (add-hook 'org-load-hook
             (lambda ()
@@ -517,6 +516,69 @@ Run org-capture, and we now have our new w template (but we lost our default). T
       C-h v var RET
 
    - Change the value of variable var to value: *M-x set-variable <RET> var <RET> value <RET>*
+
+** Rectagles
+   
+   Rectangle commands operate on rectangular areas of the text: all the characters between a certain pair of columns, in a certain range of
+   lines. Emacs has commands to kill rectangles, yank killed rectangles, clear them out, fill them with blanks or text, or delete them. Rectangle
+   commands are useful with text in multicolumn formats, and for changing text into or out of such formats. 
+
+** Registers
+
+*** Saving Positions and Registers
+    C-x r <SPC> r
+    C-x rjr
+
+*** Saving Text in Registers
+    C-x rsr
+    C-x rir
+    M-x append-to-register <RET> r
+    M-x prepend-to-register <RET> r
+
+    When you are collecting text using append-to-register and
+    prepend-to-register, you may want to separate individual collected
+    pieces using a separator. In that case, configure a register-separator
+    and store the separator text in to that register. For example, to get
+    double newlines as text separator during the collection process, you
+    can use the following setting. 
+
+    #+BEGIN_SRC elisp
+
+    (setq register-separator ?+)
+    (set-register register-separator "\n\n")
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : ((43 . 
+    : 
+    : ) (49 . When you are collecting text using append-to-register and
+    : prepend-to-register, you may want to separate individual collected
+    : pieces using a separator. In that case, configure a register-separator
+    : and store the separator text in to that register. For example, to get
+    : double newlines as text separator during the collection process, you
+    : can use the following setting. 
+    : ) (112 . #<marker at 20289 in loqueaprendo.org>))
+
+*** Saving Rectangles in Registers
+    C-x rrr
+    C-x rir
+
+*** Saving Window Configurations in Registers
+    
+    C-x rwr
+    C-x rfr
+
+** Line wraping
+
+   #+BEGIN_SRC elisp
+
+   (add-hook 'visual-line-mode-hook 'visual-fill-column-mode
+   
+   #+END_SRC
+
+   #+RESULTS:
+   | visual-fill-column-mode | visual-line-mode-set-explicitly |
 
 * Emacs Web Browser
 
@@ -899,7 +961,7 @@ Leave the campground cleaner than you found it
     
     I recommend you put this in your .emacs file:
 
-    #+BEGIN_SRC emacs-lisp
+    #+BEGIN_SRC elisp
 
     (ido-mode 1)
     (setq ido-enable-flex-matching t)
@@ -911,7 +973,7 @@ Leave the campground cleaner than you found it
 
     IF you want Ido mode to work with C-x C-f (find-files) then add this as well:
 
-    #+BEGIN_SRC emacs-lisp
+    #+BEGIN_SRC elisp
 
     (setq ido-everywhere t)
     
@@ -924,7 +986,7 @@ Leave the campground cleaner than you found it
 
     Emacs by default will pester you with a splash screen and a message in the echo area. To disable both, and have emacs default to its *scratch* buffer, add this to your .emacs:
 
-    #+BEGIN_SRC emacs-lisp
+    #+BEGIN_SRC elisp
 
     (setq inhibit-startup-message t
           inhibit-startup-echo-area-message t)  
@@ -949,7 +1011,7 @@ Leave the campground cleaner than you found it
     
     I prefer to enable it globally and then disable it locally for each mode I do not like.
     Here’s how you would enable it globally:
-    #+BEGIN_SRC emacs-lisp
+    #+BEGIN_SRC elisp
 
     (define-key global-map (kbd "RET") 'newline-and-indent)
     
@@ -974,7 +1036,7 @@ Leave the campground cleaner than you found it
     To inspect the load path you can type _C-h v load-path_ RET.
     Add this to your .emacs, substituting the example path below with one of your own choosing. 
     I recommend ~/.emacs.d/ or another sub-directory to your home directory.
-    #+BEGIN_SRC emacs-lisp
+    #+BEGIN_SRC elisp
 
     ;; You can change the path here
     (add-to-list 'load-path "~/.emacs.d/myelisp")
