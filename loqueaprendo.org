@@ -220,6 +220,14 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** [[http://xahlee.info/linux/linux_xmodmap_tutorial.html][xmodmap tutorial - xahlee.info]]
 
 
+** Keyboard shortcut for moving window between monitors
+
+   Super+Shift with arrow keys by default
+
+** Knoppix 
+
+*** [[https://www.wgdd.de/2013/08/create-knoppix-usb-boot-stick-from.html][Create a KNOPPIX USB (boot-)stick from a running Linux system ]]
+
 * MSYS2-MINGW 
 
 ** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]
@@ -580,10 +588,10 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+RESULTS:
    | visual-fill-column-mode | visual-line-mode-set-explicitly |
 
+
 * Emacs Web Browser
 
-** [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
-
+ * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
 
 * Windows 10
 
