@@ -1,4 +1,5 @@
- #+TITLE: Lo que aprendo. elisp
+
+#+TITLE: Lo que aprendo. elisp
 #+AUTHOR: valro
 #+DATE: 27/12/2019
 ;;#+STARTUP: showall 
@@ -224,9 +225,49 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
    Super+Shift with arrow keys by default
 
+
 ** Knoppix 
 
 *** [[https://www.wgdd.de/2013/08/create-knoppix-usb-boot-stick-from.html][Create a KNOPPIX USB (boot-)stick from a running Linux system ]]
+
+
+** Copy Files and Directories
+
+   =cp [options] source1 source2 [...] destination_directory=
+   =cp -arf ~/DatosWin/CASA/* /media/valgalsan/Maxtor/CASA_DatosWin=
+
+
+** I can't delete files 'rm: cannot remove X Read-only file system'
+
+   Depending on the state of things, the output of mount may not reflect reality. 
+   You're far better of with cat /proc/mounts, which is guaranteed to show you the actual mount table, 
+   wherein you'll probably find that it's actually mounted read-only. You can fix this with mount -o remount,rw /mount/point
+
+** [[https://linuxhandbook.com/anaconda-linux/][how to uninstall anaconda3]]
+
+** [[https://www.oueta.com/linux/create-linux-and-unix-bootable-usb-flash-drive-in-linux-with-command-line/][Create Linux and Unix bootable USB flash drive in Linux with command line]]
+
+   1. First, identify the USB drive
+      
+      #+BEGIN_SRC bash
+      findmnt 
+      #+END_SRC
+      #+BEGIN_SRC 
+      fdisk -l /dev/sde
+      #+END_SRC
+
+** [[https://linoxide.com/linux-command/list-mounted-drives-on-linux/][How to List Mounted Drives on Linux ]]
+
+* Linux From Scratch
+
+** [[http://www.linuxfromscratch.org/lfs/view/stable/][LFS - book - Gerard Beekmans - Version 9.0]]
+
+** Prerequisites 
+*** [[http://www.tldp.org/HOWTO/Software-Building-HOWTO.html][Software-Building-HOWTO]]
+    
+    - [[http://www.tldp.org/HOWTO/Software-Building-HOWTO-4.html][4.Prepackaged Binaries]]
+
+*** [[http://moi.vonos.net/linux/beginners-installing-from-source/][Beginner's Guide to Installing from Source]]
 
 * MSYS2-MINGW 
 
@@ -419,6 +460,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 * Emacs  
 
 ** Refresh Dired: C-x b g
+
 ** GoTo
 
   - GoTo line: M-g g
@@ -452,6 +494,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+RESULTS:
    | lambda | nil | (define-key org-mode-map  (quote org-next-link)) | (define-key org-mode-map  (quote org-previous-link)) |
    
+
 ** Use-Package. 
    - [[https://www.smoothterminal.com/articles/setting-up-package-management-with-use-package][Setting up package management with use-package - blog - Josh Adams - Published on: 2017-05-16 ]]
      
@@ -588,6 +631,24 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+RESULTS:
    | visual-fill-column-mode | visual-line-mode-set-explicitly |
 
+** How to record and play a macro
+
+*** High Level Steps to Record and Play inside Emacs
+
+    1. Start recording a macro by pressing ctrl+x (
+    2. Perform any actions inside the Emacs editor that you would like to record.
+    3. Stop recording by pressing ctrl+x )
+    4. Play the last recorded macro by pressing ctrl+x e 
+
+*** High Level Steps for Naming and Saving emacs macro, and playing it later
+    
+    1. Press Ctrl+x Ctrl+k n
+    2. Give name-of-macro, and press ENTER
+    3. Run the named macro by pressing, M-x name-of-macro 
+
+*** [[https://www.thegeekstuff.com/2010/07/emacs-macro-tutorial-how-to-record-and-play/][Emacs Macro Tutorial: How to Record and Play]]
+
+** org-babel-shell-names
 
 * Emacs Web Browser
 
