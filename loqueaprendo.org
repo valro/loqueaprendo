@@ -252,11 +252,154 @@ Run org-capture, and we now have our new w template (but we lost our default). T
       #+BEGIN_SRC bash
       findmnt 
       #+END_SRC
-      #+BEGIN_SRC 
-      fdisk -l /dev/sde
+
+      #+RESULTS:
+      | TARGET                                             SOURCE      FSTYPE          OPTIONS |                                                          |                   |               |                   |               |                                                                  |              |                |
+      | /                                                  /dev/sdb5   ext4            rw      | relatime                                                 | errors=remount-ro | data=ordered  |                   |               |                                                                  |              |                |
+      | ├─/sys                                             sysfs       sysfs           rw      | nosuid                                                   | nodev             | noexec        | relatime          |               |                                                                  |              |                |
+      | │ ├─/sys/kernel/security                           securityfs  securityfs      rw      | nosuid                                                   | nodev             | noexec        | relatime          |               |                                                                  |              |                |
+      | │ ├─/sys/fs/cgroup                                 tmpfs       tmpfs           rw      | mode=755                                                 |                   |               |                   |               |                                                                  |              |                |
+      | │ │ ├─/sys/fs/cgroup/systemd                       cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | xattr         | release_agent=/lib/systemd/systemd-cgroups-agent                 | name=systemd |                |
+      | │ │ ├─/sys/fs/cgroup/net_cls                                                           | net_prio              cgroup      cgroup          rw     | nosuid            | nodev         | noexec            | relatime      | net_cls                                                          | net_prio     |                |
+      | │ │ ├─/sys/fs/cgroup/freezer                       cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | freezer       |                                                                  |              |                |
+      | │ │ ├─/sys/fs/cgroup/pids                          cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | pids          | release_agent=/run/cgmanager/agents/cgm-release-agent.pids       |              |                |
+      | │ │ ├─/sys/fs/cgroup/cpu                                                               | cpuacct                   cgroup      cgroup          rw | nosuid            | nodev         | noexec            | relatime      | cpu                                                              | cpuacct      |                |
+      | │ │ ├─/sys/fs/cgroup/devices                       cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | devices       |                                                                  |              |                |
+      | │ │ ├─/sys/fs/cgroup/hugetlb                       cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | hugetlb       | release_agent=/run/cgmanager/agents/cgm-release-agent.hugetlb    |              |                |
+      | │ │ ├─/sys/fs/cgroup/blkio                         cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | blkio         |                                                                  |              |                |
+      | │ │ ├─/sys/fs/cgroup/memory                        cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | memory        |                                                                  |              |                |
+      | │ │ ├─/sys/fs/cgroup/cpuset                        cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | cpuset        | clone_children                                                   |              |                |
+      | │ │ └─/sys/fs/cgroup/perf_event                    cgroup      cgroup          rw      | nosuid                                                   | nodev             | noexec        | relatime          | perf_event    | release_agent=/run/cgmanager/agents/cgm-release-agent.perf_event |              |                |
+      | │ ├─/sys/fs/pstore                                 pstore      pstore          rw      | nosuid                                                   | nodev             | noexec        | relatime          |               |                                                                  |              |                |
+      | │ ├─/sys/fs/fuse/connections                       fusectl     fusectl         rw      | relatime                                                 |                   |               |                   |               |                                                                  |              |                |
+      | │ └─/sys/kernel/debug                              debugfs     debugfs         rw      | relatime                                                 |                   |               |                   |               |                                                                  |              |                |
+      | ├─/proc                                            proc        proc            rw      | nosuid                                                   | nodev             | noexec        | relatime          |               |                                                                  |              |                |
+      | │ └─/proc/sys/fs/binfmt_misc                       systemd-1   autofs          rw      | relatime                                                 | fd=34             | pgrp=1        | timeout=0         | minproto=5    | maxproto=5                                                       | direct       | pipe_ino=13394 |
+      | │   └─/proc/sys/fs/binfmt_misc                     binfmt_misc binfmt_misc     rw      | relatime                                                 |                   |               |                   |               |                                                                  |              |                |
+      | ├─/dev                                             udev        devtmpfs        rw      | nosuid                                                   | relatime          | size=8169380k | nr_inodes=2042345 | mode=755      |                                                                  |              |                |
+      | │ ├─/dev/pts                                       devpts      devpts          rw      | nosuid                                                   | noexec            | relatime      | gid=5             | mode=620      | ptmxmode=000                                                     |              |                |
+      | │ ├─/dev/shm                                       tmpfs       tmpfs           rw      | nosuid                                                   | nodev             |               |                   |               |                                                                  |              |                |
+      | │ ├─/dev/mqueue                                    mqueue      mqueue          rw      | relatime                                                 |                   |               |                   |               |                                                                  |              |                |
+      | │ └─/dev/hugepages                                 hugetlbfs   hugetlbfs       rw      | relatime                                                 |                   |               |                   |               |                                                                  |              |                |
+      | ├─/run                                             tmpfs       tmpfs           rw      | nosuid                                                   | noexec            | relatime      | size=1638572k     | mode=755      |                                                                  |              |                |
+      | │ ├─/run/lock                                      tmpfs       tmpfs           rw      | nosuid                                                   | nodev             | noexec        | relatime          | size=5120k    |                                                                  |              |                |
+      | │ ├─/run/cgmanager/fs                              cgmfs       tmpfs           rw      | relatime                                                 | size=100k         | mode=755      |                   |               |                                                                  |              |                |
+      | │ ├─/run/user/1001                                 tmpfs       tmpfs           rw      | nosuid                                                   | nodev             | relatime      | size=1638572k     | mode=700      | uid=1001                                                         | gid=1001     |                |
+      | │ └─/run/user/1000                                 tmpfs       tmpfs           rw      | nosuid                                                   | nodev             | relatime      | size=1638572k     | mode=700      | uid=1000                                                         | gid=1000     |                |
+      | │   └─/run/user/1000/gvfs                          gvfsd-fuse  fuse.gvfsd-fuse rw      | nosuid                                                   | nodev             | relatime      | user_id=1000      | group_id=1000 |                                                                  |              |                |
+      | ├─/home/valgalsan/DatosMint                        /dev/sda2   ext4            rw      | relatime                                                 | data=ordered      |               |                   |               |                                                                  |              |                |
+      | ├─/home/valgalsan/DatosWin                         /dev/sda1   fuseblk         ro      | relatime                                                 | user_id=0         | group_id=0    | allow_other       | blksize=4096  |                                                                  |              |                |
+      | ├─/snap/core/8213                                  /dev/loop0  squashfs        ro      | nodev                                                    | relatime          |               |                   |               |                                                                  |              |                |
+      | ├─/snap/core/8268                                  /dev/loop1  squashfs        ro      | nodev                                                    | relatime          |               |                   |               |                                                                  |              |                |
+      | ├─/snap/gtk-common-themes/1353                     /dev/loop2  squashfs        ro      | nodev                                                    | relatime          |               |                   |               |                                                                  |              |                |
+      | ├─/snap/core18/1288                                /dev/loop3  squashfs        ro      | nodev                                                    | relatime          |               |                   |               |                                                                  |              |                |
+      | ├─/snap/core18/1279                                /dev/loop4  squashfs        ro      | nodev                                                    | relatime          |               |                   |               |                                                                  |              |                |
+      | ├─/snap/flameshot-app/188                          /dev/loop5  squashfs        ro      | nodev                                                    | relatime          |               |                   |               |                                                                  |              |                |
+      | ├─/media/valgalsan/Linux Mint 19.3 Cinnamon 64-bit /dev/sde1   iso9660         ro      | nosuid                                                   | nodev             | relatime      | uid=1000          | gid=1000      | iocharset=utf8                                                   | mode=0400    | dmode=0500     |
+      | └─/media/valgalsan/Maxtor                          /dev/sdc1   fuseblk         rw      | nosuid                                                   | nodev             | relatime      | user_id=0         | group_id=0    | default_permissions                                              | allow_other  | blksize=4096   |
+
+      #+BEGIN_SRC sh 
+      sudo fdisk -l /dev/sde1
       #+END_SRC
 
+      #+RESULTS:
+
+   2. Method 1 - using dd (Data Duplication)
+      - Check if the file is an ISOHybrid image, it must contain an MBR while the ISO9660 doesn’t. You can use the file command or hexdump the first 512 bytes.
+	- As you see the file command does not detect the MBR or hexdump shows just zeros, if you write this image it will not boot, it’s an ISO9660 image.
+	  #+BEGIN_SRC sh
+	  file /media/valgalsan/Maxtor/Downloads/rutracker/linuxmint-19.3-cinnamon-64bit.iso 
+	 #+END_SRC
+
+	 #+RESULTS:
+	 | /media/valgalsan/Maxtor/Downloads/rutracker/linuxmint-19.3-cinnamon-64bit.iso: DOS/MBR boot sector ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Linux Mint 19.3 Cinnamon 64-bit' (bootable); partition 2 : ID=0xef | start-CHS (0x3ff | 254 | 63) | end-CHS (0x3ff | 254 | 63) | startsector 680 | 4928 sectors |
+
+	 #+BEGIN_SRC zsh
+	 hexdump -n 512 /media/valgalsan/Maxtor/Downloads/rutracker/linuxmint-19.3-cinnamon-64bit.iso
+	 #+END_SRC
+
+	 #+RESULTS:
+	 |       0 | 5245 |    8 | 0    | 9090 |    0 |    0 | 0    |    0 |
+	 |      10 |    0 |    0 | 0    |    0 |    0 |    0 | 0    |    0 |
+	 |      20 | ed33 | 8efa | bcd5 | 7c00 | fcfb | 3166 | 66db | c931 |
+	 |      30 | 5366 | 5166 | 5706 | dd8e | c58e | be52 | 7c00 | 00bf |
+	 |      40 | b906 |  100 | a5f3 | 4bea |    6 | 5200 | 41b4 | aabb |
+	 |      50 | 3155 | 30c9 | f9f6 | 13cd | 1672 | fb81 | aa55 | 1075 |
+	 |      60 | e183 | 7401 | 660b | 06c7 | 06f1 | 42b4 | 15eb | 00eb |
+	 |      70 | 515a | 08b4 | 13cd | e183 | 5b3f | 0f51 | c6b6 | 5040 |
+	 |      80 | e1f7 | 5253 | bb50 | 7c00 | 04b9 | 6600 | b0a1 | e807 |
+	 |      90 |   44 | 820f | 80   | 4066 | c780 | e202 | 66f2 | 3e81 |
+	 | 00000a0 | 7c40 | c0fb | 7078 |  975 | bcfa | 7bec | 44ea | 007c |
+	 | 00000b0 | e800 |   83 | 7369 | 6c6f | 6e69 | 7875 | 622e | 6e69 |
+	 | 00000c0 | 6d20 | 7369 | 6973 | 676e | 6f20 | 2072 | 6f63 | 7272 |
+	 | 00000d0 | 7075 | 2e74 | 0a0d | 6066 | 3166 | 66d2 | 603  | 7bf8 |
+	 | 00000e0 | 1366 | fc16 | 667b | 6652 |  650 | 6a53 | 6a01 | 8910 |
+	 | 00000f0 | 66e6 | 36f7 | 7be8 | e4c0 | 8806 | 88e1 | 92c5 | 36f6 |
+	 |     100 | 7bee | c688 | e108 | b841 |  201 | 168a | 7bf2 | 13cd |
+	 |     110 | 648d | 6610 | c361 | 1ee8 | 4f00 | 6570 | 6172 | 6974 |
+	 |     120 | 676e | 7320 | 7379 | 6574 | 206d | 6f6c | 6461 | 6520 |
+	 |     130 | 7272 | 726f | 0d2e | 5e0a | b4ac | 8a0e | 623e | b304 |
+	 |     140 | cd07 | 3c10 | 750a | cdf1 | f418 | fdeb | 0    |    0 |
+	 |     150 |    0 |    0 | 0    |    0 |    0 |    0 | 0    |    0 |
+	 |       * |      |      |      |      |      |      |      |      |
+	 | 00001b0 | 15e8 |    0 | 0    |    0 | 4ac4 | 1dda | 0    |   80 |
+	 | 00001c0 |    1 | 7900 | fae0 |    0 |    0 | b3c0 | 003c | fe00 |
+	 | 00001d0 | ffff | feef | ffff | 02a8 |    0 | 1340 | 0    |    0 |
+	 | 00001e0 |    0 |    0 | 0    |    0 |    0 |    0 | 0    |    0 |
+	 | 00001f0 |    0 |    0 | 0    |    0 |    0 |    0 | 0    | aa55 |
+	 |     200 |      |      |      |      |      |      |      |      |
+
+	- The file command detected the MBR, this is what we need to use the dd command, it’s an ISOHybrid image.
+
+      - Write the ISOHybrid image to the USB drive. All data on /dev/sdx will be destroyed!
+	#+BEGIN_SRC sh
+	dd if=/media/valgalsan/Maxtor/Downloads/rutracker/linuxmint-19.3-cinnamon-64bit.iso of=/dev/sdx bs=512 status=progress
+	#+END_SR
+
+   3. Method 2 - manually (MBR partitioning scheme)
+
+      1. Install requirements: 
+
+         - [[http://www.linuxfromscratch.org/blfs/view/svn/postlfs/dosfstools.html][dosfstools]]
+
+	 - apt-get build-dep syslinux
+
+      2. Delete partitions by clearing the Master Boot Record, the following command will write 0x00 to the first 512 bytes. All data on /dev/sdx will be destroyed!
+	 #+BEGIN_SRC sh
+	 dd if=/dev/zero of=/dev/sde bs=512 count=1
+	 #+END_SRC
+
+
+
+
+
 ** [[https://linoxide.com/linux-command/list-mounted-drives-on-linux/][How to List Mounted Drives on Linux ]]
+
+   1. Using cat command
+      #+BEGIN_SRC sh
+      cat /proc/mounts
+      #+END_SRC
+   2. Using mount command
+      #+BEGIN_SRC sh
+      mount
+      #+END_SRC
+      #+BEGIN_SRC sh
+      mount -l
+      #+END_SRC
+   3. Using df command
+      #+BEGIN_SRC sh
+      df -aTh
+      #+END_SRC
+      #+BEGIN_SRC sh
+      df -HP -t nfs
+      #+END_SRC
+   4. Using findmnt
+      #+BEGIN_SRC sh
+      findmnt --raw
+      #+END_SRC
+      #+BEGIN_SRC sh
+      findmnt -t ext4
+      #+END_SRC
 
 ** [[https://www.maketecheasier.com/check-hardware-information-linux/][How to Check Hardware Information on Linux Command Line]] 
 
