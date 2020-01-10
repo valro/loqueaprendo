@@ -258,6 +258,96 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 ** [[https://linoxide.com/linux-command/list-mounted-drives-on-linux/][How to List Mounted Drives on Linux ]]
 
+** [[https://www.maketecheasier.com/check-hardware-information-linux/][How to Check Hardware Information on Linux Command Line]] 
+
+   - Gathering Hardware Information on Linux Machine
+
+     $ dmesg                       ==> Detected hardware and boot messages
+    
+     $ cat /proc/cpuinfo           ==> CPU model
+     $ cat /cat/meminfo            ==> Hardware memory
+     $ cat /proc/interrupts        ==> Lists the number of interrupts per CPU per I/O device
+     $ lshw                        ==> Displays information on hardware configuration of the system
+     $ lsblk                       ==> Displays block device reaalted inforamtion in Linux (sudo yum install util-linux-ng)
+     $ free -m                     ==> Used and free memory (-m for MB)
+     $ lspci -tv                   ==> Show PCI devices
+
+   - lscpu
+     The =lscpu= command gives you information about the CPU and processing units. It does not have any other options or functionality.
+
+   - lspci
+     The =lspci= is another command line tool that lists all the PCI buses and details about the devices connected to them like VGA adapter, graphics card, network adapter, usb ports, SATA controller, etc.
+     You can also filter out specific device information by running the following command: 
+     #+BEGIN_SRC sh
+
+     lspci -v | grep "VGA" -A 12
+     
+     #+END_SRC
+
+   - lshw
+     The lshw is a general purpose utility that reports detailed and brief information about multiple hardware units like CPU, memory, usb controller, disk, etc. Lshw extracts the information from different “/proc” files.
+     #+BEGIN_SRC sh
+
+     lshw -short
+     
+     #+END_SRC
+
+   - lssci
+     You can list all scsi/sata devices like hard drives and optical drives by running the following command:
+     #+BEGIN_SRC sh
+
+     lssci
+     
+     #+END_SRC
+
+   - lsusb
+     This command shows you the USB controllers and details about devices connected to them. By default, the =lsusb= command prints brief information. You can also use the verbose option -v to print detailed information about each usb port.
+
+   - Inxi
+     Inxi is a bash script that fetches hardware information from multiple sources and commands on the system and gives you goodlooking reports that non-technical users can read easily.
+
+     By default, inxi is not installed in Ubuntu. You can install it by running the following command: =sudo apt-get install inxi=. After installing inxi, you can get hardware information by running the following command:
+     #+BEGIN_SRC sh
+     inxi -Fx
+     #+END_SRC
+
+   - df
+     This command gives you brief information about various partitions, their mount points and the used and available space on each.
+     You can run the df command with the -H parameter.
+     #+BEGIN_SRC sh
+     df -H
+     #+END_SRC
+
+   - free
+     You can check the amount of used, free and total amount of RAM on your system with the free command.
+     #+BEGIN_SRC sh
+     free -m
+     #+END_SRC
+
+   - dmidecode
+     The dmidecode command is different from all other commands. It extracts hardware information by reading data from the DMI tables.
+
+     To display information about the processor, run:
+     #+BEGIN_SRC sh
+     sudo dmidecode -t processor
+     #+END_SRC
+     To display information about the memory, run:
+     #+BEGIN_SRC sh
+     sudo dmidecode -t memory
+     #+END_SRC
+     To display information about the bios, run:
+     #+BEGIN_SRC sh
+     sudo dmidecode -t bios
+     #+END_SRC
+
+   - hdparm
+     The hdparm command gives you information about sata devices like hard disks.
+     #+BEGIN_SRC sh
+     sudo hdparmgg
+     #+END_SRC
+     
+
+     
 * Linux From Scratch
 
 ** [[http://www.linuxfromscratch.org/lfs/view/stable/][LFS - book - Gerard Beekmans - Version 9.0]]
