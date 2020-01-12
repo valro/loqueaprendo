@@ -408,7 +408,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
      $ dmesg                       ==> Detected hardware and boot messages
     
      $ cat /proc/cpuinfo           ==> CPU model
-     $ cat /cat/meminfo            ==> Hardware memory
+     $ cat /proc/meminfo           ==> Hardware memory
      $ cat /proc/interrupts        ==> Lists the number of interrupts per CPU per I/O device
      $ lshw                        ==> Displays information on hardware configuration of the system
      $ lsblk                       ==> Displays block device reaalted inforamtion in Linux (sudo yum install util-linux-ng)
@@ -501,6 +501,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     - [[http://www.tldp.org/HOWTO/Software-Building-HOWTO-4.html][4.Prepackaged Binaries]]
 
 *** [[http://moi.vonos.net/linux/beginners-installing-from-source/][Beginner's Guide to Installing from Source]]
+
 
 * MSYS2-MINGW 
 
@@ -1391,4 +1392,17 @@ Leave the campground cleaner than you found it
 
 
 
+
+
+* forensic tools
+
+** clonezilla
+
+** Acronis True Image 
+
+** [[https://sourceforge.net/p/ophcrack/wiki/Frequently%20Asked%20Questions/#which-version-of-the-livecd-should-i-download][ophcrack -wiki-]]
+   
+* acer upgrade
+
+** [[https://www.youtube.com/watch?v=gAir6cYysK8&list=PL3QtniWQf6P4HYadpA5CHys40banTK5E6&index=5&t=0s][cpu upgrade in Aer Aspire 8930G laptop (E8335 replaces T6400) -video-]]
 
