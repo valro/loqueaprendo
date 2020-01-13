@@ -490,7 +490,33 @@ Run org-capture, and we now have our new w template (but we lost our default). T
      #+END_SRC
      
 
-     
+** How to Check Drive Space     
+   [[https://www.techrepublic.com/article/how-to-check-drive-space-on-linux-from-the-command-line/][How to check drive space on Linux from the command line]]
+   - df reports the amount of disk space used on a file system
+   - du reports the amount of space used by specific files
+   - btrfs reports the amount of space used by a btrfs file system mount point
+
+* Linux GPG
+
+** [[https://moi.vonos.net/linux/beginners-installing-from-source/][Downloading and Security]]
+   Some software providers sign archive files instead of (or as well as) providing an md5 checksum. In this case you should:
+
+   - download the provider’s public key from their website (using https where possible)
+   - download the “signature file” for the archive-file; this will be a small file which has the same base name as the downloaded file, with suffix “.sig” or “.asc”
+   - perform the following steps
+     Example: Emacs 26.3
+     - Download the tar source:
+       #+BEGIN_SRC sh
+       wget "https://ftpmirror.gnu.org/emacs/emacs-26.3.tar.gz" -o /home/valgalsan/DatosMint/Downloads/emacs-26.3.tar.gz
+       
+       #+END_SRC
+
+     - Get the PGP signature
+       #+BEGIN_SRC sh
+       wget "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.gz.sig" -o /home/valgalsan/DatosMint/Downloads/emacs-26.3.tar.gz.sig
+       #+END_SRC
+
+
 * Linux From Scratch
 
 ** [[http://www.linuxfromscratch.org/lfs/view/stable/][LFS - book - Gerard Beekmans - Version 9.0]]
@@ -502,6 +528,17 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 *** [[http://moi.vonos.net/linux/beginners-installing-from-source/][Beginner's Guide to Installing from Source]]
 
+* Linux Backups
+
+** [[https://github.com/teejee2008/timeshift][timeshift - System Restore Tool for Linux]]
+   
+** [[https://github.com/teejee2008/timeshift][TimeShift alternatives and similar tools]]
+
+** [[https://linuxhint.com/timeshift_linux_mint_19_usb/][How to Use Timeshift to Backup and Restore Linux Mint 19 Systems from USB Drive]]
+
+* Linux Mint Update and Upgrade
+
+** [[https://itsfoss.com/upgrade-linux-mint-version/][How to Upgrade to Linux Mint 19 (Step by Step Tutorial)]]
 
 * MSYS2-MINGW 
 
