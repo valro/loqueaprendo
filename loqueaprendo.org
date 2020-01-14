@@ -216,10 +216,8 @@ Run org-capture, and we now have our new w template (but we lost our default). T
  
 
 ** [[https://www.howtogeek.com/413213/how-to-kill-processes-from-the-linux-terminal/][How to Kill Processes From the Linux Terminal]]
-
    
 ** [[http://xahlee.info/linux/linux_xmodmap_tutorial.html][xmodmap tutorial - xahlee.info]]
-
 
 ** Keyboard shortcut for moving window between monitors
 
@@ -242,6 +240,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    Depending on the state of things, the output of mount may not reflect reality. 
    You're far better of with cat /proc/mounts, which is guaranteed to show you the actual mount table, 
    wherein you'll probably find that it's actually mounted read-only. You can fix this with mount -o remount,rw /mount/point
+
 
 ** [[https://linuxhandbook.com/anaconda-linux/][how to uninstall anaconda3]]
 
@@ -401,6 +400,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
       findmnt -t ext4
       #+END_SRC
 
+
 ** [[https://www.maketecheasier.com/check-hardware-information-linux/][How to Check Hardware Information on Linux Command Line]] 
 
    - Gathering Hardware Information on Linux Machine
@@ -426,6 +426,21 @@ Run org-capture, and we now have our new w template (but we lost our default). T
      lspci -v | grep "VGA" -A 12
      
      #+END_SRC
+
+     #+RESULTS:
+     | 01:00.0 | VGA           | compatible | controller: | NVIDIA      | Corporation       | GF108       | [GeForce    | GT    | 730]       | (rev | a1) | (prog-if | 0 | [VGA | controller]) |
+     |         | Subsystem:    | Gigabyte   | Technology  | Co.,        | Ltd               | GF108       | [GeForce    | GT    | 730]       |      |     |          |   |      |              |
+     |         | Flags:        | bus        | master,     | fast        | devsel,           | latency     | 0,          | IRQ   | 30         |      |     |          |   |      |              |
+     |         | Memory        | at         | f6000000    | (32-bit,    | non-prefetchable) | [size=16M]  |             |       |            |      |     |          |   |      |              |
+     |         | Memory        | at         | e8000000    | (64-bit,    | prefetchable)     | [size=128M] |             |       |            |      |     |          |   |      |              |
+     |         | Memory        | at         | f0000000    | (64-bit,    | prefetchable)     | [size=32M]  |             |       |            |      |     |          |   |      |              |
+     |         | I/O           | ports      | at          | e000        | [size=128]        |             |             |       |            |      |     |          |   |      |              |
+     |         | [virtual]     | Expansion  | ROM         | at          | 000c0000          | [disabled]  | [size=128K] |       |            |      |     |          |   |      |              |
+     |         | Capabilities: | <access    | denied>     |             |                   |             |             |       |            |      |     |          |   |      |              |
+     |         | Kernel        | driver     | in          | use:        | nvidia            |             |             |       |            |      |     |          |   |      |              |
+     |         | Kernel        | modules:   | nvidiafb,   | nouveau,    | nvidia_384_drm,   | nvidia_384  |             |       |            |      |     |          |   |      |              |
+     |         |               |            |             |             |                   |             |             |       |            |      |     |          |   |      |              |
+     | 01:00.1 | Audio         | device:    | NVIDIA      | Corporation | GF108             | High        | Definition  | Audio | Controller | (rev | a1) |          |   |      |              |
 
    - lshw
      The lshw is a general purpose utility that reports detailed and brief information about multiple hardware units like CPU, memory, usb controller, disk, etc. Lshw extracts the information from different “/proc” files.
@@ -474,6 +489,9 @@ Run org-capture, and we now have our new w template (but we lost our default). T
      #+BEGIN_SRC sh
      sudo dmidecode -t processor
      #+END_SRC
+
+     #+RESULTS:
+
      To display information about the memory, run:
      #+BEGIN_SRC sh
      sudo dmidecode -t memory
@@ -495,6 +513,28 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - df reports the amount of disk space used on a file system
    - du reports the amount of space used by specific files
    - btrfs reports the amount of space used by a btrfs file system mount point
+
+
+** How do I change keyboards from the command line
+   #+BEGIN_SRC sh
+   # English to Sapanish and viceversa with Alt + Shift
+   setxkbmap -option grp:alt_shift_toggle us,es
+   #+END_SRC
+
+   #+RESULTS:
+   You can see all locale alias with
+   #+BEGIN_SRC sh
+   cat /etc/locale.alias
+   #+END_SRC
+
+   More info about setxkbmap in manual: man setxkbmap
+   
+   Information in how to set it on boot: [[https://wiki.gentoo.org/wiki/Keyboard_layout_switching][gentoo linux wiki -Keyboard layout switching/]]
+
+
+** [[https://itsfoss.com/how-to-remove-or-delete-ppas-quick-tip/][How to Remove or Delete PPA in Ubuntu]]
+
+** [[https://www.reallinuxuser.com/how-to-install-graphics-drivers-in-linux-mint/][How to install graphics drivers in Linux Mint]]
 
 * Linux GPG
 
@@ -920,10 +960,13 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 *** [[https://www.thegeekstuff.com/2010/07/emacs-macro-tutorial-how-to-record-and-play/][Emacs Macro Tutorial: How to Record and Play]]
 
 ** org-babel-shell-names
+   - asegurarse que la variable org-babel-shell-names incluye, entre otros, "zsh" que es el que yo utilizo . (C-h v)
+   - Call org-babel-shell-initialize mediante Alt-x
 
 * Emacs Web Browser
 
  * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
+
 
 * Windows 10
 
@@ -1439,6 +1482,7 @@ Leave the campground cleaner than you found it
 
 ** [[https://sourceforge.net/p/ophcrack/wiki/Frequently%20Asked%20Questions/#which-version-of-the-livecd-should-i-download][ophcrack -wiki-]]
    
+
 * acer upgrade
 
 ** [[https://www.youtube.com/watch?v=gAir6cYysK8&list=PL3QtniWQf6P4HYadpA5CHys40banTK5E6&index=5&t=0s][cpu upgrade in Aer Aspire 8930G laptop (E8335 replaces T6400) -video-]]
