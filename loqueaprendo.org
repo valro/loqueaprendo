@@ -130,6 +130,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    [[https://orgmode.org/manual/Languages.html#Languages][Languages Identifiers]]
 
 
+
 * Raspberry home
 
 ** Conexión con ssh
@@ -517,7 +518,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 ** How do I change keyboards from the command line
    #+BEGIN_SRC sh
-   # English to Sapanish and viceversa with Alt + Shift
+   # English to Spanish keyboard and viceversa with Alt + Shift
    setxkbmap -option grp:alt_shift_toggle us,es
    #+END_SRC
 
@@ -535,6 +536,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** [[https://itsfoss.com/how-to-remove-or-delete-ppas-quick-tip/][How to Remove or Delete PPA in Ubuntu]]
 
 ** [[https://www.reallinuxuser.com/how-to-install-graphics-drivers-in-linux-mint/][How to install graphics drivers in Linux Mint]]
+
 
 * Linux GPG
 
@@ -980,6 +982,34 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    
    [[https://community.spiceworks.com/topic/2242998-one-user-experiencing-constant-permission-error][Source]]
 
+** Blanquear passwords
+   Estas opciones requieren arrancar desde USB un sistema linux
+*** Opción 1. Usar la funcionalidad de sthc.exe
+     What is sethc.exe doing on my computer?
+   sethc.exe is a process associated with Windows NT High Contrast Invocation and is part of Microsoft® Windows® Operating System. With default Windows settings, this process is run when the shift is pressed 5 times in sequence, to invoke the StickyKeys configuration window. 
+   Pasos:
+   #+BEGIN_SRC 
+   # hacer copia de seguridad de sethc.exe
+   cp sethc.exe sethc.old
+   # cambiar la funcionalidad del original por el programa de consola de windows
+   mv sethc.exe cmd.exe
+   sync
+   #+END_SRC
+   Se apaga la máquina linux y se extrae el usb
+   Se arranca Windows
+   Se pulsa cinco veces la tecla Shift para abrir la consola cmd
+   #+BEGIN_SRC 
+   net user NNNNNN nuevapassword (para blaquear introducir '*')
+   #+END_SRC
+   Se cambiar password de Administrator de la misma manera
+   #+BEGIN_SRC 
+   net user Administrator nuevapassword
+   #+END_SRC
+*** Opción 2. Usar la funcionalidad de osk.exe
+    What is osk.exe doing on my computer?
+    osk.exe is a small utility bundled with Windows intended to provide some functionality for users with limited mobility. "This program is a non-essential system process, but should not be terminated unless suspected to be causing problems."
+    osk.exe is a system process that is needed for your PC to work properly. It should not be removed.
+    Se siguen los mismos pasos que anteriormente. Para arrancar la consola se hace click en la ventana de presentación de los usuarios.
 
 * Hashes in books
 
