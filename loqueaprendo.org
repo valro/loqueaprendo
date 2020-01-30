@@ -807,7 +807,11 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+RESULTS:
    | lambda | nil | (define-key org-mode-map  (quote org-next-link)) | (define-key org-mode-map  (quote org-previous-link)) |
    
-
+** Disable the Menu Bar
+   To disable the menu bar. Add (menu-bar-mode -1) to your init file.
+   #+BEGIN_SRC elisp
+   (menu-bar-mode -1)
+   #+END_SRC
 ** Use-Package. 
    - [[https://www.smoothterminal.com/articles/setting-up-package-management-with-use-package][Setting up package management with use-package - blog - Josh Adams - Published on: 2017-05-16 ]]
      
@@ -964,6 +968,8 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** org-babel-shell-names
    - asegurarse que la variable org-babel-shell-names incluye, entre otros, "zsh" que es el que yo utilizo . (C-h v)
    - Call org-babel-shell-initialize mediante Alt-x
+
+** [[https://www.emacswiki.org/emacs/KeyboardMacros][Keyboard-Macros]]
 
 * Emacs Web Browser
 
@@ -1503,8 +1509,8 @@ Leave the campground cleaner than you found it
    intrahash = {7eac77c7a6942f002caf1afc6d23e181},
    year = {2008},
    month = {apr},
-   isbn = {0393979504},
-   url = {https://www.xarg.org/ref/a/0393979504/}
+   isbn = {9780393979503},
+   url = {https://www.directtextbook.com/isbn/9780393979503}
   }
 
 *** GCC finding errors in programs
