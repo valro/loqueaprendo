@@ -537,7 +537,24 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 ** [[https://www.reallinuxuser.com/how-to-install-graphics-drivers-in-linux-mint/][How to install graphics drivers in Linux Mint]]
 
-
+*** [[https://www.youtube.com/watch?v=v0Ist9aEKEg][How to install and use ndiswrapper]]
+    - Primero se averiguan los dispositivos disponibles conectados con el su - 
+     #+BEGIN_SRC bash
+     lspci
+     #+END_SRC
+      02:00.0 Ethernet controller: Qualcomm Atheros AR8121/AR8113/AR8114 
+    - Determinar pdi del manufacturer
+      #+BEGIN_SRC bash
+      lspci -nn
+      #+END_SRC
+      02:00.0 0200: 1969:1026 (rev b0)
+    - Averiguar el nombre del vendedor
+      #+BEGIN_SRC bash
+      lsusb
+      #+END_SRC
+    - Install ndiswraper
+    - Download drivers: [[https://www.acer.com/ac/en/GB/content/support-product/131?b=1][acer aspire 8930g drivers]]
+      
 * Linux GPG
 
 ** [[https://moi.vonos.net/linux/beginners-installing-from-source/][Downloading and Security]]
@@ -558,7 +575,8 @@ Run org-capture, and we now have our new w template (but we lost our default). T
        wget "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.gz.sig" -o /home/valgalsan/DatosMint/Downloads/emacs-26.3.tar.gz.sig
        #+END_SRC
 
-
+* Linux drivers
+  
 * Linux From Scratch
 
 ** [[http://www.linuxfromscratch.org/lfs/view/stable/][LFS - book - Gerard Beekmans - Version 9.0]]
