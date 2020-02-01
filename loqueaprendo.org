@@ -130,7 +130,17 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    [[https://orgmode.org/manual/Languages.html#Languages][Languages Identifiers]]
 
 
-
+* Git
+** Configurar editor de texto
+   #+BEGIN_SRC sh
+   git config --global core.editor emacs
+   # Si no quieres que se abra el editor de texto al hacer commit
+   # git commit -m "Comentario al commit donde se describen cambios"
+   #+END_SRC
+** Sincronizando repositorios
+   #+BEGIN_SRC sh
+   git remote -v
+   #+END_SRC
 * Raspberry home
 
 ** Conexión con ssh
