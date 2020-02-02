@@ -131,16 +131,29 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 
 * Git
+** Iniciar: git init
+** Ver archivos: git status
 ** Configurar editor de texto
    #+BEGIN_SRC sh
    git config --global core.editor emacs
    # Si no quieres que se abra el editor de texto al hacer commit
    # git commit -m "Comentario al commit donde se describen cambios"
    #+END_SRC
+** crear repositorio remoto: git remote add origin https://github.com/valro/loqueaprendo.git
 ** Sincronizando repositorios
    #+BEGIN_SRC sh
    git remote -v
    #+END_SRC
+** Desechar cambios: git checkout -- nombredelarchivo
+** Ver los cambios: git log
+** Ignorar archivos y carpetas: git ignore
+** ver ramas: git branch
+** crear rama: git branch learn-c
+** moverse a learn-c: git checkout learn-c
+** agregar todos los archivos: git add .
+** foto del proyecto: git log
+
+
 * Raspberry home
 
 ** Conexión con ssh
