@@ -1,12 +1,14 @@
 
 #+TITLE: Lo que aprendo. elisp
 #+AUTHOR: valro
-#+DATE: 27/12/2019
+#+DATE: 03/02/202
 ;;#+STARTUP: showall 
 
 ------
+
 * Org Mode
 
+** [[https://orgmode.org/manual/index.html#SEC_Contents][Org mode Manual]]
 
 ** [[http://pragmaticemacs.com/emacs/wrap-text-in-an-org-mode-block/][WRAP TEXT IN AN ORG-MODE BLOCK]] 
 
@@ -121,14 +123,66 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 -----
 
+** [[https://orgmode.org/worg/org-contrib/babel/intro.html][babel introduction]]
+** [[https://orgmode.org/worg/org-contrib/babel/languages.html#configure][Babel Languages Configure]]
 
 ** [[https://orgmode.org/manual/Evaluating-code-blocks.html][Evaluating code blogs]]
 
    C-c C-c
    C-c C-v e
 
-   [[https://orgmode.org/manual/Languages.html#Languages][Languages Identifiers]]
+   [[https://orgmode.org/manual/Languages.html#Languages][Languages Identifiers
+]]
+** Source Code Execution examples
 
+   #+BEGIN_SRC ruby
+   "This file was last evaluated on #{Date.today}"
+   #+END_SRC
+   #+BEGIN_SRC sh
+   echo "`du -h`"
+   #+END_SRC
+
+   #+RESULTS:
+   |    0 | ./.git/branches                 |
+   |  28K | ./.git/hooks                    |
+   |    0 | ./.git/info                     |
+   | 4,0K | ./.git/logs/refs/heads          |
+   |    0 | ./.git/logs/refs/remotes/origin |
+   |    0 | ./.git/logs/refs/remotes        |
+   | 4,0K | ./.git/logs/refs                |
+   | 8,0K | ./.git/logs                     |
+   |    0 | ./.git/objects/00               |
+   |  32K | ./.git/objects/08               |
+   |    0 | ./.git/objects/19               |
+   |  32K | ./.git/objects/27               |
+   |    0 | ./.git/objects/28               |
+   |    0 | ./.git/objects/2e               |
+   |    0 | ./.git/objects/63               |
+   |    0 | ./.git/objects/91               |
+   | 4,0K | ./.git/objects/94               |
+   |    0 | ./.git/objects/97               |
+   |    0 | ./.git/objects/9a               |
+   |    0 | ./.git/objects/b3               |
+   |  32K | ./.git/objects/bd               |
+   |    0 | ./.git/objects/d1               |
+   |    0 | ./.git/objects/df               |
+   |  32K | ./.git/objects/e2               |
+   |    0 | ./.git/objects/e6               |
+   |  32K | ./.git/objects/ed               |
+   |    0 | ./.git/objects/info             |
+   | 280K | ./.git/objects/pack             |
+   | 444K | ./.git/objects                  |
+   |    0 | ./.git/refs/heads               |
+   |    0 | ./.git/refs/remotes/origin      |
+   |    0 | ./.git/refs/remotes             |
+   |    0 | ./.git/refs/tags                |
+   |    0 | ./.git/refs                     |
+   | 484K | ./.git                          |
+   | 852K | .                               |
+
+  
+  
+    
 
 * Git
 ** Iniciar: git init
@@ -1011,7 +1065,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - Call org-babel-shell-initialize mediante Alt-x
 
 ** [[https://www.emacswiki.org/emacs/KeyboardMacros][Keyboard-Macros]]
-
+** 
 * Emacs Web Browser
 
  * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
