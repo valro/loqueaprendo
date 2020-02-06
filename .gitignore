@@ -1,6 +1,13 @@
-#Ficheros auxiliares de emacs
+# Ficheros auxiliares de emacs
+##----------------------------
 .#
 *.*~
 ~*.*
 #*.*#
-#============================
+##============================
+## Ignorar todos los archivos que terminen en "~"
+*~
+
+## Ignorar todos los archivos que terminen en ".temp"
+*.temp
+

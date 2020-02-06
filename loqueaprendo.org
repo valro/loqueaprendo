@@ -201,6 +201,12 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** Desechar cambios: git checkout -- nombredelarchivo
 ** Ver los cambios: git log
 ** Ignorar archivos y carpetas: git ignore
+   Usar un archivo llamado ~/ignorar en mi home aplicable como .gitignore a todos
+   los repositorios.  
+   #+BEGIN_SRC shell
+   git config --global core.excludesfile ~/ignorar
+   
+   #+END_SRC
 ** ver ramas: git branch
 ** crear rama: git branch learn-c
 ** moverse a learn-c: git checkout learn-c
