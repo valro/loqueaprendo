@@ -201,8 +201,11 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** Desechar cambios: git checkout -- nombredelarchivo
 ** Ver los cambios: git log
 ** Ignorar archivos y carpetas: git ignore
-   Usar un archivo llamado ~/ignorar en mi home aplicable como .gitignore a todos
-   los repositorios.  
+   - Opción 1: 
+     Usar un archivo llamado ~/ignorar en mi home aplicable como .gitignore a todos
+     mis repositorios.  
+   - Opción 2:
+     
    #+BEGIN_SRC shell
    git config --global core.excludesfile ~/ignorar
    
