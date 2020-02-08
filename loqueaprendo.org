@@ -215,6 +215,12 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 ** moverse a learn-c: git checkout learn-c
 ** agregar todos los archivos: git add .
 ** foto del proyecto: git log
+   git log -4
+   git log --online . Versión resumida
+   git log -p . Ver detalles
+   git log --graph
+   git log --graph --online
+   git help log
 
 
 * Raspberry home
