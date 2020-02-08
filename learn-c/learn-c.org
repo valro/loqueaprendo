@@ -1,0 +1,43 @@
+
+#+TITLE: learn-c
+#+AUTHOR: valro
+#+DATE: 08/02/202
+;;#+STARTUP: showall 
+--------------------------------------------------
+C Programming: A Modern Approach    
+
+   @book{king2008,
+   AUTHOR = {K. N. KING},
+   title = {C Programming: A Modern Approach, 2nd Edition},
+   description = {C Programming: A Modern Approach, 2nd Edition (Book, 2008)},
+   publisher = {W. W. Norton & Company},
+   interhash = {cd0edbc77780700a9e48383807942677},
+   intrahash = {7eac77c7a6942f002caf1afc6d23e181},
+   year = {2008},
+   month = {apr},
+   isbn = {9780393979503},
+   url = {https://www.directtextbook.com/isbn/9780393979503}
+  }
+--------------------------------------------------
+A Partial List of C operators
+
+|----------+---------------------+------------------+---------------|
+| predence | Name                | Symbol(s)        | Associativity |
+|----------+---------------------+------------------+---------------|
+|        1 | increment (postfix) | ++               | left          |
+|          | decrement (postfix) | --               |               |
+|----------+---------------------+------------------+---------------|
+|        2 | increment (prefix)  | ++               | right         |
+|          | decrement (prefix)  | --               |               |
+|          | unary plus          | +                |               |
+|          | unary minus         | -                |               |
+|----------+---------------------+------------------+---------------|
+|        3 | multiplicative      | * / %            | left          |
+|----------+---------------------+------------------+---------------|
+|        4 | additive            | + -              | left          |
+|----------+---------------------+------------------+---------------|
+|        5 | assignment          | = *= /= %= += -= | right         |
+|----------+---------------------+------------------+---------------|
+
+
+
