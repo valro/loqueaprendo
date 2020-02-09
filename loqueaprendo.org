@@ -186,6 +186,13 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 * Git
 ** Iniciar: git init
+** Obtener ayuda
+   git help
+   git help commit
+   git help status
+   git help log
+   ........
+
 ** Ver archivos: git status
 ** Configurar editor de texto
    #+BEGIN_SRC sh

@@ -19,6 +19,8 @@ C Programming: A Modern Approach
    url = {https://www.directtextbook.com/isbn/9780393979503}
   }
 --------------------------------------------------
+* Expression Evaluation
+
 A Partial List of C operators
 
 |----------+---------------------+------------------+---------------|
@@ -39,5 +41,45 @@ A Partial List of C operators
 |        5 | assignment          | = *= /= %= += -= | right         |
 |----------+---------------------+------------------+---------------|
 
+This table (see Appendix A) has a variety of uses. Let's look one of these. 
+Suppose that we run across a complicated expression such as:
+
+#+BEGIN_SRC C
+a = b += c++ - d + --e / -f
+#+END_SRC
+This expression would be easier to understand if there were parentheses
+to show how the expression is constructed from subexpressions.
+Steps:
+ 1. the operator with highest precedence is ++, used here as postfix, so we 
+    put parentheses around ++ and its operand:
+    #+BEGIN_SRC C
+    a = b += (c++) - d + --e / -f;
+    #+END_SRC
+ 2. Now we spot a prefix -- operator and a unary minus operator (both with
+    predence 2)
+    #+BEGIN_SRC C
+    a = b += (c++) - d + (--e) / (-f); // The other minus is not a unary oper.
+    #+END_SRC
+ 3. Next we note the / operator with predence 3.
+    #+BEGIN_SRC C
+    a = b += (c++) - d + ((--e) / (-f));
+    #+END_SRC
+ 4. The expression contains two operators with predence 4, substraction
+    and addition. Whenever two operators with the same predence are adjacent 
+    to and operand, we've got to be careful about associativity. In this example,
+    - and + are both adjacent to d, so associativity rules apply. The - and +
+    operators group from left to right, so the parentheses go around the
+    substraction first, then the addition.
+    #+BEGIN_SRC C
+    a = b += (((c++) - d) + ((--e) / (-f)));
+    #+END_SRC
+ 5. The only remaining operators are = and +=. B oth operators are adjacent
+    to b, so we must take associativity into account. Assigment opeators group
+    from right to left, so parentheses go around the += expression first, then
+    the = expression.
+    #+BEGIN_SRC C
+    (a = (b += (((c++) - d) + ((--e) / (-f)))));
+    #+END_SRC
+    The expression is now fully parenthesized.
 
 
