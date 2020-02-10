@@ -193,6 +193,32 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    git help log
    ........
 
+** Borrado de archivos
+   1. git rm NOMBRE_DEL_FICHERO
+   borra el fichero y también el fichero del Index
+   2. git rm --cached NOMBRE_DEL_FICHERO
+      borra el fichero del Index pero no el fichero local
+   3. git rm HEAD NOMBRE_DEL_FICHERO
+      hace lo mismo que lo anterior
+** Rehacer un commit
+   1. git commit --amend
+      rehace el último commit. Si no hay modificación de los archivos
+      simplemente modifica el comentario del commit
+      si se me había olvidado añadir algo al Index, lo hago ahora antes del git
+      commit --amend y se aplicará en el commit.
+** Deshacer cambios en un archivo
+   Se han realizado cambios en el fichero pero quiero recuparar la versión
+   anterior: git ckeckout -- NOMBRE_DEL_ARCHIVO
+** Resolviendo conflictos
+   Borrar las marcas de conflicto (los <<<<< y los >>>>> y los =====) y 
+   elegir el código con el que nos quedamos. Una vez hecho esto, se puede 
+   hacer push.
+** Retrocediendo al pasado
+   1. Conocer el hash del momento con git log
+   2. ejecutar git reset --hard HASH_DEL_COMMIT_A_RECUPERAR
+      Consejo: hacer push antes de hacer git reset --hard por si hay que
+      recuperar ficheros posteriores.
+
 ** Ver archivos: git status
 ** Configurar editor de texto
    #+BEGIN_SRC sh
@@ -228,7 +254,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    git log --graph
    git log --graph --online
    git help log
-
 
 * Raspberry home
 
