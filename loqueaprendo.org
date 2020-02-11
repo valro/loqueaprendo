@@ -1159,6 +1159,20 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     osk.exe is a system process that is needed for your PC to work properly. It should not be removed.
     Se siguen los mismos pasos que anteriormente. Para arrancar la consola se hace click en la ventana de presentación de los usuarios.
 
+* Windows-WSL
+** [[https://superuser.com/questions/1114341/windows-10-ubuntu-bash-shell-how-do-i-mount-other-windows-drives][Windows 10 Ubuntu Bash Shell: How Do I Mount Other Windows Drives]]
+   #+BEGIN_SRC sh
+   #Mount removable media: (e.g. D:)
+   sudo mkdir /mnt/d
+   sudo mount -t drvfs D: /mnt/d
+   #To safely unmount
+   sudo umount /mnt/d
+   #+END_SRC
+   You can also mount network shares without smbfs:
+   #+BEGIN_SRC sh
+   sudo mount -t drvfs '\\server\share' /mnt/share
+   #+END_SRC
+
 * Hashes in books
 
 The *intra hash* is relatively strict and takes into account the fields /title, author, editor, year, entrytype, journal, booktitle, volume, and number/. 
