@@ -268,7 +268,10 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - El servicio tomcat está activo por defecto
    - Introducir en Navegador web: 192.168.1.150:8080
 
-
+* Linux: State battery laptop
+  #+BEGIN_SRC sh
+  upower -i /org/freedesktop/UPower/devices/battery_BAT0
+  #+END_SRC
 * Linux Commands
 
 ** [[https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/][Listing Running Services Under SystemD in Linux]]
