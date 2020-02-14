@@ -43,7 +43,6 @@ A Partial List of C operators
 
 This table (see Appendix A) has a variety of uses. Let's look one of these. 
 Suppose that we run across a complicated expression such as:
-
 #+BEGIN_SRC C
 a = b += c++ - d + --e / -f
 #+END_SRC
@@ -81,5 +80,6 @@ Steps:
     (a = (b += (((c++) - d) + ((--e) / (-f)))));
     #+END_SRC
     The expression is now fully parenthesized.
+
 
 
