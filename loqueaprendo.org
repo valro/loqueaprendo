@@ -243,6 +243,12 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    git config --global core.excludesfile ~/ignorar
    
    #+END_SRC
+** Ramas
+   En realidad, pull es combinanción de dos operaciones: fetch y merge
+*** Ramas ligeras: etiquetas
+    git tag v0.0.2
+    tag etiqueta el último commit, es decir asigna una etiqueta al estado en el que estaba el repositorio tras el último commit.
+    Con git tag se listan las etiquetas
 ** ver ramas: git branch
 ** crear rama: git branch learn-c
 ** moverse a learn-c: git checkout learn-c
