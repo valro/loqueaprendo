@@ -249,6 +249,20 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     git tag v0.0.2
     tag etiqueta el último commit, es decir asigna una etiqueta al estado en el que estaba el repositorio tras el último commit.
     Con git tag se listan las etiquetas
+    Las ramas también se pueden anotar:
+    git tag -a v.0.0.2.1 -m "Estado estacionario del repositorio"
+    Esta información aparecerá añadida al commit correspondiente:
+    git show v0.0.0.2.1
+    git describe
+    git push --tags. Para que se comuniquen las etiquetas al repositorio remoto.
+*** Creando y fusionando ramas
+    Forma rápida de crear una rama: git checkout -b get-dir
+    Para crear esa rama en el repositorio remoto y sincronizr los dos
+    repositorios: git push --set-upstream origin get-dir
+    get-dir es el nombre de la rama que hemos creado.
+    Las ramas de trabajo se pueden listar con git branch. Si queremos ver todas: git branch --all
+    git branch -vv. Doble verbosidad
+    
 ** ver ramas: git branch
 ** crear rama: git branch learn-c
 ** moverse a learn-c: git checkout learn-c
