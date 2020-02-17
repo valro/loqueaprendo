@@ -254,6 +254,7 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     Esta información aparecerá añadida al commit correspondiente:
     git show v0.0.0.2.1
     git describe
+    git push --tags. Para que se comuniquen las etiquetas al repositorio remoto.
     
 ** ver ramas: git branch
 ** crear rama: git branch learn-c
