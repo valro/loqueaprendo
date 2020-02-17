@@ -262,6 +262,12 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     get-dir es el nombre de la rama que hemos creado.
     Las ramas de trabajo se pueden listar con git branch. Si queremos ver todas: git branch --all
     git branch -vv. Doble verbosidad
+    checkout te permite pasar fuicheros de una rama a otra sin tener que fusionar la rama completa: por ejemplo queremos pasar un fichero a la rama gh-pages desde la rama master: 
+    #+BEGIN_SRC sh
+    git checkout gh-pages 
+    git checkout master README.md 
+    #+END_SRC
+
     
 ** ver ramas: git branch
 ** crear rama: git branch learn-c
