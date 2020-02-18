@@ -740,6 +740,26 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
 ** [[https://itsfoss.com/upgrade-linux-mint-version/][How to Upgrade to Linux Mint 19 (Step by Step Tutorial)]]
 
+* Linux Shell script to get the time difference
+** Se trata de obtener dos valores date en dos momentos
+   #+BEGIN_SRC shell
+   
+   #!/bin/bash
+   START=$(date +%s)
+   # do something
+
+   # start your script work here
+   ls -R /etc > /tmp/x
+   rm -f /tmp/x
+   # your logic ends here
+
+   END=$(date +%s)
+   DIFF=$(( $END - $START ))
+   echo "It took $DIFF seconds"
+
+   #+END_SRC
+  [[https://www.cyberciti.biz/faq/shell-script-to-get-the-time-difference/][Shell script o get the time difference]]
+
 * MSYS2-MINGW 
 
 ** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]

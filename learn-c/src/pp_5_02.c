@@ -20,7 +20,13 @@ int main ( void ) {
   printf ("Enter a 24-hour time: ");
   scanf ("%2d:%2d", &hour, &min);
 
-  
+  if ( hour <= 12 )
+    printf ("Equivalent 12-hour time: %d:%d AM\n", hour, min);
+  else if ( hour >= 13 && hour < 24 )
+    printf ("Equivalent 12-hour time: %d:%d PM\n", hour - 12, min);
+  else if ( hour == 24 )
+    printf ("Equivalkente 12-hour time: %d:%d AM\n", hour - 24, min);
+
   return 0;
 }
 
