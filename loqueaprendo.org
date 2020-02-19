@@ -729,7 +729,8 @@ Run org-capture, and we now have our new w template (but we lost our default). T
        #+END_SRC
 
 * Linux drivers
-  
+** Instalar drivers de windows con ndiswrapper
+  [[https://www.taringa.net/+linux/instalar-drivers-de-windows-en-ubuntu_12u4yo][Instalar drivers de windows en ubuntu]]
 * Linux From Scratch
 
 ** [[http://www.linuxfromscratch.org/lfs/view/stable/][LFS - book - Gerard Beekmans - Version 9.0]]
@@ -781,6 +782,70 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     diff mingw-config msys2-config
     #+END_SRC
 
+* [[https://www.youtube.com/watch?v=Iya2b7F0WYk][¿Cómo instalar Debian paso a paso? | GNU/Linux Debian]]
+*** Listado de cosas a hacer
+    1. Elegir Advance modo gráfico
+2. elegir lenguaje. situación. utf-8
+3. configurar teclado.
+4. detectar y montar cd-rom
+5. cargar componentes del instalador. continuar
+6. detectar hardware de red
+7. configurar red automática
+8.nombre del máquina: debian-vgs
+9.nombre dominio: blanco
+10.contraseñas si, si
+11. contraseña de root
+12. usuario normal: valgalsan
+13.contraseña usuario
+14.configurar el reloj:si
+15.zona horario
+16.particionado de discos: Manual
+17. SCSI-Seleccion del disco
+18.crear tabla de particiones: gpt
+19.crear partición nueva
+20.asignar 500MB al principio. sistema ext2.punto de montaje /boot
+21.crear partición: root. 100 gb. ext4. punto de montaje: /
+22.crear swap. 8 GB. principio.
+23.crear home. ext4 punto de montaje /home.
+24. Finalizar particionado. Escribir los cambios al disco.
+25.Instalar el sistema base. Opcion por defecto.
+26.drivers. instalar genéricos.
+27.configurar el gestor de paquetes. NO. Un único disco.
+28.Réplica Red. SI
+29.protocolo por defecto.
+30.seleccionar servidor de usa. alta disponibilidad.
+31.Software no libre SI
+32.Analizar repositorios de fuentes. NO-SI
+33.actualizaciones de seguridad. actualizaciones de distribución
+34.encuesta. NO
+35.escritorio. GNOME
+36.instalar cargdaor de arranque. SI (GRUB). Elegir el disco.remivibles.NO
+37.Terminar la instalación
+38.Horario UTC
+39. Instalacion completa. Extraer el USB. Clic en continuar
+
+40. install ndiswrapper
+
+Personalizar debian
+1. incluir usuario en sudoers
+nano /etc/sudoers
+añadir valgalsan
+2. ampliar repositorios. software y updates.
+3. personalizar debian
+        retoques. gnome tweak tools
+        animaciones...
+        temas apt-install ark-shell. iconos
+        aplicaciones al inicio
+        barra superior
+        extensiones. GS Connect. Dash to Dock
+        teclado y raton
+        tipografía
+        tasksel
+        openbox
+       
+Instalar tmux
+Instalar git
+Instalar emacs
 
 * Bash Ubuntu in Windows 10
 
