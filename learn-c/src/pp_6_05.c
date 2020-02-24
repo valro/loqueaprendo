@@ -32,13 +32,14 @@ int main(void)
 
     printf("%d", modulus);
 
-    number = cocient;
+    if (cocient > 99) {
+      number = cocient;
+    }
+    else {
+      printf("%d\n", number % 10, number / 10);
+    }
     
-    if ( number < 10 )
-
-      printf("%d\n", number);
-    
-  } while ( modulus != 0);
+  } while ( modulus > 0 );
 
 
 	
