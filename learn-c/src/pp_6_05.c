@@ -3,8 +3,8 @@
  *displays a two-digit number with its digits reversed. Generalize the
  *program so that the number can have one, two, three, or more digits.
  *
- *Hint: Use a do loop that repeatedly divides the number by 10, stopping 
- *when it reaches 0.
+ *Hint: Use a do loop that repeatedly divides the number by 10,
+ *stopping when it reaches 0.
  *
  *date:24/02/2020
  *author:vgs
@@ -17,30 +17,22 @@ int main(void)
 {
   int number;
   int modulus;
-  int cocient;
   int reversal;
   
-  printf("Enter a numnber: ");
+  printf("Enter a number: ");
   scanf("%d", &number);
 
-  printf("The reversal is: ");
-
+  reversal = 0;
+  
   do {
-
+    
     modulus = number % 10;
-    cocient = number / 10;
+    reversal = reversal * 10 + modulus; // invierte cualquier entero
+    number /= 10;
 
-    printf("%d", modulus);
+  } while ( number != 0);  // el entero de 0,8 es 0
 
-    number = cocient;
-    
-    if ( number < 10 )
-
-      printf("%d\n", number);
-    
-  } while ( modulus != 0);
-
-
+  printf("The reversal number is: %d\n", reversal);
 	
   return 0;
 }
