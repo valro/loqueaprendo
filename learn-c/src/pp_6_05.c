@@ -25,10 +25,27 @@ int main(void)
   reversal = 0;
   
   do {
+<<<<<<< HEAD
     
     modulus = number % 10;
     reversal = reversal * 10 + modulus; // invierte cualquier entero
     number /= 10;
+=======
+
+    modulus = number % 10;
+    cocient = number / 10;
+
+    printf("%d", modulus);
+
+    if (cocient > 99) {
+      number = cocient;
+    }
+    else {
+      printf("%d\n", number % 10, number / 10);
+    }
+    
+  } while ( modulus > 0 );
+>>>>>>> de08ef60297a06ea0d37787754f6f01a9213ba75
 
   } while ( number != 0);  // el entero de 0,8 es 0
 
