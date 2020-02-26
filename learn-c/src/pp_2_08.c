@@ -9,7 +9,7 @@ Balance remaining after the second payment:
 Balance remaining after the third payment:
 
 Date: 27/01/2020 
-author: Valentín Gallego
+author: vgs
 */
 
 #include<stdio.h>
