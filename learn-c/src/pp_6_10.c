@@ -19,43 +19,60 @@
 
 int main(void) {
   int first_day, first_month, first_year;
-  int second_day, second_month, second_year;
   int day, month, year;
-  int min_day, min_mont, min_year;
+  int min_day, min_month, min_year;
 
   // Introducir dos fechas y extraer la mas temprana
   
   printf("Enter a date (mm/dd/yy) : ");
-  scanf("%2d/%2d/%2d", &first_month, &first_day, &first_year);
-  printf("Enter a date (mm/dd/yy) : ");
-  scanf("%2d/%2d/%2d", &second_month, &second_day, &second_year);
+  scanf("%d/%d/%2d", &first_month, &first_day, &first_year);
 
-  
-  // If anidados
-  
-  if (first_year < second_year)
-    min_month = first_month; min_day = first_day; min_year = first_year;
-
-  else if (first_year == second_year)
-
-    if (first_month < second_month)
-      min_month = first_month; min_day = first_day; min_year = first_year;
-
-    else if (first_month == second_month)
-
-      if (first_day < second_day)
-	min_month = first_month; min_day = first_day; min_year = first_year;
-
-      else
-	min_month = second_month; min_day = second_day; min_year = second_year;
-  
-      else
-	min_month = second_month; min_day = second_day; min_year = second_year;
-    
   for (;;) {
-    
 
+  printf("Enter a date (mm/dd/yy) : ");
+  scanf("%d/%d/%2d", &month, &day, &year);
+
+  if ( month == 0 && day == 0 && year == 0 )
+    break;
+
+  if ( first_year < year ) {         
+    // la fecha introducida en primer lugar es anterior a la actual
+    min_year = first_year; min_month = first_month; min_day = first_day;
   }
+  else if ( first_year == year ) {
+    if ( first_month < month ) {
+      min_year = first_year; min_month = first_month; min_day = first_day;
+    }
+    else if ( first_month == month ) {
+      if ( first_day < day ) {
+	min_year = first_year; min_month = first_month; min_day = first_day;
+      }
+      else if ( first_day == day ) {
+	// Se trata de la primera fecha introducida dos veces. Se toma la primera por facilidad
+	min_year = first_year; min_month = first_month; min_day = first_day;
+      }
+      else {
+	// day < first_day
+	min_year = year; min_month = month; min_day =  day;
+	
+      }
+ 
+    }
+    else {
+      // month < first_month
+      min_year = year; min_month = month; min_day =  day;
+    }
+  }
+
+  else {
+    // year < first_year
+    min_year = year; min_month = month; min_day =  day;
+  }
+  //  printf("min_month: %d min_day: %d min_year: %2d\n", min_month, min_day, min_year);
+  first_year = min_year; first_month = min_month; first_day = min_day;
+  }
+
+  printf("The date %d/%d/%.2d is the earliest date introduced\n", min_month, min_day, min_year);
   
   return 0;
 }
