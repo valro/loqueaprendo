@@ -1007,7 +1007,19 @@ Instalar emacs
 
 
 * Emacs  
-
+** [[http://tuhdo.github.io/emacs-tutor.html#orgheadline15][Emacs Mini Manual (PART 1) - THE BASICS]]
+** [[https://emacs.stackexchange.com/questions/5647/how-to-input-special-character-such-as-celsius-symbol-and-common-greek-letters][How to input special character, such as Celsius symbol, and common greek letters?]] 
+   #+BEGIN_SRC elisp
+   M-x set-input-method TeX
+   #+END_SRC
+   #+BEGIN_SRC elisp
+   M-x describe-input-method
+   #+END_SRC
+   por ejemplo, introducir las letras pi y epsilon
+   #+BEGIN_SRC elisp
+   M-x set-input-method greek
+   Escribiendo: e, pi se obtiene: ε, π
+   #+END_SRC
 ** Refresh Dired: C-x b g
 
 ** GoTo
@@ -1206,12 +1218,16 @@ Instalar emacs
    - Call org-babel-shell-initialize mediante Alt-x
 
 ** [[https://www.emacswiki.org/emacs/KeyboardMacros][Keyboard-Macros]]
-** 
+*** 
 * Emacs Web Browser
 
  * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
 
+* C/C++ Development Environment for Emacs
+** [[https://tuhdo.github.io/c-ide.html][C/C++ Development Environment for Emacs]]
 
+* Emacs packages
+** [[https://github.com/emacs-helm/helm/wiki][Helm]]
 * Windows 10
 
 ** Persistent flag from LocalBridge.exe program
