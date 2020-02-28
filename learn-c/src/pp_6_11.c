@@ -1,4 +1,6 @@
-/*pp_6_11.c
+/*
+ *=====================================================================
+ *name:pp_6_11.c
  *
  *The value of the mathematical constant e can be expressed as an 
  *infinte series:
@@ -10,6 +12,7 @@
  *date:27/02/2020
  *author:vgs
  *
+ *=====================================================================
  */
 
 #include<stdio.h>
