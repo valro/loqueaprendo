@@ -1005,7 +1005,8 @@ Instalar emacs
 ** [[][Code Characters for interactive]
 ** [[https://www.emacswiki.org/emacs/FrameSize][FrameSize -- At Emacs Startup, Programmaticaly (e.g. in your init file), Both Interactively and Programmatically]]
 
-
+* Videos
+** [[https://www.youtube.com/channel/UC0uTPqBCFIpZxlz_Lv1tk_g/search?query=ido][Protesilaos Stavrou]]
 * Emacs  
 ** [[http://tuhdo.github.io/emacs-tutor.html#orgheadline15][Emacs Mini Manual (PART 1) - THE BASICS]]
 ** [[https://emacs.stackexchange.com/questions/5647/how-to-input-special-character-such-as-celsius-symbol-and-common-greek-letters][How to input special character, such as Celsius symbol, and common greek letters?]] 
