@@ -294,6 +294,15 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - El servicio tomcat está activo por defecto
    - Introducir en Navegador web: 192.168.1.150:8080
 
+* LaTeX
+** [[https://ondahostil.wordpress.com/2020/02/24/lo-que-he-aprendido-pdfjam-y-la-aneca/][pdfjam]]
+** [[https://ondahostil.wordpress.com/2020/02/04/lo-que-he-aprendido-la-clase-standalone/][standalone class]]
+* Linux. How do I know if a particular library is installed in Linux or not? 
+** ldconfig
+   If libjpeg is not installed, there will be no output. If it is installed, you will get a line for each version available. 
+     #+BEGIN_SRC sh
+     /sbin/ldconfig -p | grep libjpeg
+     #+END_SRC
 * Linux: State battery laptop
   #+BEGIN_SRC sh
   upower -i /org/freedesktop/UPower/devices/battery_BAT0
@@ -1220,6 +1229,64 @@ Instalar emacs
 
 ** [[https://www.emacswiki.org/emacs/KeyboardMacros][Keyboard-Macros]]
 *** 
+* Emacs. Install from Source
+  - Step one. Install dependencies
+    #+BEGIN_SRC sh
+    apt-get build-dep emacs24
+    #+END_SRC
+  - Step two. Check if ftp package is installed.
+    #+BEGIN_SRC sh
+    apt-cache policy ftp
+    #+END_SRC
+
+    #+RESULTS:
+    | ftp:       |                                 |             |       |          |
+    | Installed: | (none)                          |             |       |          |
+    | Candidate: | 0.17-34.1                       |             |       |          |
+    | Version    | table:                          |             |       |          |
+    | 0.17-34.1  | 500                             |             |       |          |
+    | 500        | http://ftp.us.debian.org/debian | buster/main | amd64 | Packages |
+    if it doesn't install it.
+    #+BEGIN_SRC sh
+    sudo apt install ftp
+    #+END_SRC
+  - Step three. Make the current user own everything inside the folder (and the folder itself):
+    #+BEGIN_SRC sh
+    #sudo chown -R $USER ./Documents/linux-sources/emacs
+    sudo chown -R $USER /path/to/directory
+    #+END_SRC
+  - Step four. Download the files.
+    #+BEGIN_SRC sh
+    ftp ftp.gnu.org anonymous
+    #+END_SRC
+    #+BEGIN_SRC 
+    cd gnu/emacs
+    get emacs-26.3.tar.xz
+    get emacs-26.3.tar.xz.sig
+    #+END_SRC
+  - Step five. Uncompress the file.
+    #+BEGIN_SRC sh
+    tar -xvf emacs-26.3.tar.xz
+    #+END_SRC
+  - Step six. change to directory
+    #+BEGIN_SRC sh
+    cd emacs-26.3
+    #+END_SRC
+  - Step seven. configure
+    #+BEGIN_SRC 
+    ./configure
+    #+END_SRC
+  - Step eight. make
+    #+BEGIN_SRC 
+    make
+    #+END_SRC
+  - Step nine. mahe install using /usr/local/valgalsan
+    #+BEGIN_SRC 
+    sudo make install prefix=/usr/local/valgalsan/emacs
+    #+END_SRC
+** Building emacs from git
+*** [[http://ergoemacs.org/emacs/building_emacs_from_git_repository.html][building emcas from git]]
+
 * Emacs Web Browser
 
  * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
