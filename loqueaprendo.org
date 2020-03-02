@@ -871,6 +871,8 @@ Instalar emacs
 
 ** [[https://github.com/hubisan/emacs-wsl#enable-the-windows-subsystem-for-linux][Install and run emacs with the Windows Subsystem for Linux (WSL) in Windows 10.]]
 
+* bspwm
+** [[https://www.instructables.com/id/Bspwm-Installation-and-Configuration/][Bspwm Installation and Configuration]]
 
 * Tomcat
 
