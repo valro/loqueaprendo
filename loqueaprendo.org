@@ -1229,6 +1229,19 @@ Instalar emacs
 
 ** [[https://www.emacswiki.org/emacs/KeyboardMacros][Keyboard-Macros]]
 *** 
+* Emacs. protesilaos. configuration
+** init.el
+   #+BEGIN_SRC emasc-lisp
+   (require 'package)
+   (setq package-enable-at-startup nil)
+   (add-to-list 'package-archives
+     '("melpa" . "https://melpa.org/packages/"))
+   (unless package--initialized (package-initialize))
+
+   (require 'org)
+  (org-babel-load-file (expand-file-name "~/.emacs.d/emacs-init.org"))
+
+   #+END_SRC
 * Emacs. Install from Source
   - Step one. Install dependencies
     #+BEGIN_SRC sh
