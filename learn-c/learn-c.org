@@ -1,7 +1,7 @@
 
 #+TITLE: learn-c
 #+AUTHOR: valro
-#+DATE: 08/02/202
+#+DATE: 08/02/2020
 ;;#+STARTUP: showall 
 --------------------------------------------------
 C Programming: A Modern Approach    
@@ -83,3 +83,67 @@ Steps:
     The expression is now fully parenthesized.
 
 
+
+* Chapter 7
+** Exercises
+*** Section 7.1
+    1. Give thew decimal value of eaxch of the following integer constants:
+       a) 077 ---> 7*8^0 + 7*8^1 --> 63
+       b) 0x77---> 7*16^0 + 7*16^1 --> 119
+       c) 0XABC ---> 10*16^2+11*16^1+12*16^0 ---> 2560+176+12 = 2748
+       #+BEGIN_SRC C
+       /* Give the value of each of the following integer constants.
+        * (a) 077
+        * (b) 0x77
+        * (c) 0XABC
+        */
+        #include <stdio.h>
+
+        int main(void)
+        {
+         printf("\nA: %d\n", 077);
+         printf("B: %d\n", 0x77);
+         printf("C: %d\n\n", 0XABC);
+         return 0;
+}
+
+       #+END_SRC
+
+       #+RESULTS:
+       | A: |   63 |
+       | B: |  119 |
+       | C: | 2748 |
+
+*** Section 7.2
+
+    2. Which of the following are not legal constants in C? Classify each legal constant as either integer or floating-point.
+       a) 010E2 ----> Integer
+       b) 32.1E+5---> Floating-point
+       c) 0790 -----> Not legal. 9 is not octal digit number.
+       d) 100_000 --> Not legal. underscores are not legal.
+       e) 3.978e-2--> Floating-point
+
+       #+BEGIN_SRC C
+       
+       #include<stdio.h>
+       int main (void) {
+
+        printf("\na): %f\n", 0102E2);
+        printf("b): %f\n", 32.1E+5);
+        /* printf("c): %d", 0790); */
+        /* printf("d): %f", 100_000); */
+        printf("e): %f\n", 3.987e-2);
+        
+        return 0;
+       }
+       #+END_SRC
+
+       #+RESULTS:
+       | a): |   10200.0 |
+       | b): | 3210000.0 |
+       | e): |   0.03987 |
+     3. Which of the following are not legal types in C:
+	a) short unsigned int  
+	b) short float           ---> Not legal
+	c) long double           ---> Not legal
+	d) unsigned long         ---> Not legal
