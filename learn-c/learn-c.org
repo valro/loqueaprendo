@@ -172,3 +172,91 @@ Steps:
 
         #+RESULTS:
 
+*** Section 7.3
+    
+    4. If c is a variable of type char, which one of the following statements is illegal?
+       (a) i += c; /* i has type int */
+       (b) c = 2 * c = 1;
+       (c) putchar(c);
+       (d) printf(c);
+
+       Answer: (d) is illegal because printf requires a string
+
+    5. Which one of the following is not a legal way to write the number 65? (Assume that the character set is ASCII.)
+
+       (a) 'A'
+       (b) 0b1000001
+       (c) 0101
+       (d) 0x41
+
+       #+BEGIN_SRC C
+
+       #include<stdio.h>
+
+       int main(void) {
+       
+       int a = 'A';
+       int b = 0b1000001;
+       int c = 0101;
+       int d = 0x41;
+
+       printf("\nA: %d\n", a);
+       printf("B: %d\n", b);
+       printf("C: %d\n", c);
+       printf("D: %d\n", d);
+
+       }
+       
+       #+END_SRC
+
+       #+RESULTS:
+       | A: | 65 |
+       | B: | 65 |
+       | C: | 65 |
+       | D: | 65 |
+
+    6. For each of the following items of data, specify which one of the types char, short, int or long is the smallest one guaranteed to be large enough to store the item.
+
+       (a) Days in a month.
+       (b) Days in a year.
+       (c) Minutes in a day.
+       (d) Seconds in a day.
+
+       Answer:
+       a) char
+       b) short
+       c) short
+       d) int
+
+    7. For each of the following character escapes, give the equivalent octal escape. (Assume that the character set is ASCII.) You may wish to consult Appendix E, which lists the numerical codes for ASCII characters.
+
+       (a) \b
+       (b) \n
+       (c) \r
+       (d) \t
+
+       Answer:
+       a) backspace:         \010
+       b) new linefeed:      \012
+       c) carriage return:   \015
+       d) horizontal tab:    \011
+
+    8. Repeat Exercise 7, but give the equivalent hexadecimal escape
+
+       Answer:
+       a) \0x8
+       b) \0xA
+       c) \0xD
+       d) \0x9
+
+    9. Suppose that i and j are variables of type int. What is the type of the expression i / j + 'a'?
+       
+       Answer:
+       The expression will be an int. the short type is promote to int.
+
+*** Section 7.4
+
+    10. Suppose that i is a variable of type int, j is a variable of type long, and k is a variable of type unsigned int. What is the type of the expression i + (int) j * k
+
+
+
