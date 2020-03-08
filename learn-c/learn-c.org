@@ -258,5 +258,99 @@ Steps:
 
     10. Suppose that i is a variable of type int, j is a variable of type long, and k is a variable of type unsigned int. What is the type of the expression i + (int) j * k
 
+Answer:
+j is first explicitly converted from a long to an int.
+Then the expression becomes (int) + (int) * (unsigned int). Which is much more
+simple.
 
+The expression should evaluate to unsigned int in the end.
+
+    11. Suppose that i is a variable of type int, f is a variable of type float, and d is a variable of type double. What is the type of the expression i * f / d?
+
+Answer:
+i * f is float type.
+i * f / d is finally as a double.
+
+    12. Suppose that i is a variable of type int, f is a variable of type float, and d is a variable  of type double. Explain what conversions take place during the execution of the following statement: 
+d = i + f;
+
+Answer:
+In the statement, i is converted to a float, then the result of i + f is
+converted to a double in the end.
+
+    13. Assume that a program contains the following declarations:
+
+	char c = '\1';
+	short s = 2;
+	int i = -3;
+	long m = 5;
+	float f = 6.5f;
+	double d = 7.5;
+
+	Give the value and the type of each expression listed below:
+	(a) c * i;
+	(b) s + m;
+	(c) f / c
+	(d) d / s
+	(e) f - d
+	(f) (int) f
+
+    Answer:
+    a) int;
+    b) long
+    c) float
+    d) double
+    e) double
+    f) int
+
+    14. Does the following statement always compute the fractional part of f correctly (assuming that f and frac_part are float variables)?
+	frac_part = f - (int) f;
+	#+BEGIN_SRC C
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+	float f, fract_part;
+	
+	printf("\nEnter a fractional number (e.g. 1.55): ");
+	scanf("%f", &f);
+	
+	fract_part = f - (int) f;
+	printf("Fractional part: %f\n\n", fract_part);
+	
+	return 0;
+	}
+
+	
+	#+END_SRC
+
+	Answer:
+	No, it will fail if the value of f exceeds the largest value of an int.
+*** Section 7.5
+    15. Use typedef to create types named Int8, Int16, and Int32. Define the types so that they represent 8-bit, 16-bit, and 32-bit integers on your machine.
+
+    #+BEGIN_SRC C
+    #include <stdio.h>
+    #include <stdint.h>
+
+    int main(void) {
+    
+     typedef int8_t Int8;
+     typedef int16_t Int16;
+     typedef int32_t Int32;
+
+     printf("\nSize of Int8: %d bits\n", sizeof(Int8) * 8);
+     printf("Size of Int16: %d bits\n", sizeof(Int16) * 8);
+     printf("Size of Int32: %d bits\n", sizeof(Int32) * 8);
+
+     return 0;
+    }
+    
+    #+END_SRC
+
+    #+RESULTS:
+    | Size | of | Int8:  |  8 | bits |
+    | Size | of | Int16: | 16 | bits |
+    | Size | of | Int32: | 32 | bits |
 
