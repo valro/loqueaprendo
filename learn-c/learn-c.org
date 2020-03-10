@@ -129,6 +129,32 @@ Steps:
    | The | minimum | value | of   | LONG     | =    | -9.223372036854776e+18 |        |
    | The | maximum | value | of   | LONG     | =    |  9.223372036854776e+18 |        |
 
+** ctype.h
+   The header ctype.h in the ANSI C Standard Library for the C programming language contains declarations for character    classification functions.
+   List of ctype.h header file’s library functions with explanation and example programs
+    1. isalnum
+      #+BEGIN_SRC C
+      /* This function checks whether character is alphanumeric or not.*/
+      #include<stdio.h>
+      #include<ctype.h>
+      int main (void) {
+       char ch;
+       
+       printf("Enter a character: ");
+       scanf("%c", &ch);
+
+       if (isalnum(ch))
+          printf("%c is an alphanumeric character.\n",ch);
+       else
+          printf("%c is not an alphanumeric character.\n",ch);
+       
+
+       return 0;
+      }
+      
+      #+END_SRC
+    2. 
+            
 ** Exercises
 *** Section 7.1
     1. Give thew decimal value of eaxch of the following integer constants:
