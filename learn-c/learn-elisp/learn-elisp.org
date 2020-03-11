@@ -1,0 +1,17 @@
+* The message function examples
+
+  (message "The name of this buffer is : %s" (buffer-name))
+
+  (message "The value of fill-column is %d. " fill-column)  
+
+  (message "The are %d %s in the office" (- fill-column 14) "pink elephants")
+
+  finally, here is a somewhat complex example
+
+  (message "He saw %d %s"
+            (- fill-column 32)
+	    (concat "red " 
+	            (substring
+		     "The quick brown foxes jumped," 16 21)
+		     " leaping.")) 
+

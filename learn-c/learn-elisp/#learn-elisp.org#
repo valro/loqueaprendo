@@ -1,0 +1,49 @@
+* The message function examples
+
+  (message "The name of this buffer is : %s" (buffer-name))
+
+  (message "The value of fill-column is %d. " fill-column)  
+
+  (message "The are %d %s in the office" (- fill-column 14) "pink elephants")
+
+  finally, here is a somewhat complex example
+
+  (message "He saw %d %s"
+            (- fill-column 32)
+	    (concat "red " 
+	            (substring
+		     "The quick brown foxes jumped," 16 21)
+		     " leaping."))
+ 
+** Setting the Value of a Variable
+*** Using set
+    (set 'flowers '(rose violet daisy buttercup)) 
+*** Using setq
+    (setq carnivores '(lion tiger leopard))
+    (setq trees '(pine oak maple)
+          hervibores '(gazelle antelope zebra))
+*** Counting
+    (setq counter 0)                  ; Let's call this initializer
+    (setq counter (+ counter 1))      ; This is the increment
+** Exercises
+   ;; Create a counter that increments by two rather than one
+   (setq counter-two 0)
+   (setq counter-two (+ counter-two 2))
+   ;; Write an expression that prints a message in the echo area when evaluated
+   (message "The counter has a value %d" counter-two)
+* Practicing evaluation
+** Buffer Names
+   (buffer-name)
+   (buffer-file-name)
+** Getting Buffers
+   (current-buffer)
+   (other-buffer)
+** Switching Buffers
+   (switch-to-buffer (other-buffer))
+** Buffer Size and the Location of Point
+   (buffer-size)      ; returns a count of the number of characters in the buffer
+   (point)
+   (point-min)
+   (point-max)
+** Exercise
+   
