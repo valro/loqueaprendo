@@ -153,8 +153,143 @@ Steps:
       }
       
       #+END_SRC
-    2. 
-            
+    2. isalpha
+       #+BEGIN_SRC C
+       /* This function checks whether character is alphabet or not.*/
+       #include<stdio.h>
+       #include<ctype.h>
+       int main(void) {
+
+         char ch;
+ 
+         printf("Enter a character: ");
+         scanf("%c",&ch);
+ 
+         if(isalpha(ch))
+           printf("%c is an alphabet.\n",ch);
+         else
+           printf("%c is not an alphabet.\n",ch);
+     
+        return 0;
+       
+
+       }
+       #+END_SRC
+
+    3. isdigit()
+       #+BEGIN_SRC C
+       /* This function checks whether character is digit or not.*/
+       #include<stdio.h>
+       #include<ctype.h>
+ 
+       int main()
+       {
+       char ch;
+       
+       printf("Enter a character: ");
+       scanf("%c",&ch);
+       
+       if(isdigit(ch))
+         printf("%c is a digit.\n",ch);
+       else
+         printf("%c is not a digit.\n",ch);
+       
+       return 0;
+}
+       
+       #+END_SRC
+    4. isspace()
+    5. isupper()
+    6. islower()
+       #+BEGIN_SRC C
+       /* C example program of isspace(), isupper(), islower() .*/
+       #include<stdio.h>
+       #include<ctype.h>
+       
+       int main()
+       {
+       char ch;
+       
+       printf("Enter a character: ");
+       scanf("%c",&ch);
+       
+       if(isupper(ch))
+         printf("%c is an uppercase character.\n",ch);
+       else if(islower(ch))
+         printf("%c is an lowercase character.\n",ch);
+       else if(isspace(ch))
+         printf("%c is space.\n",ch);
+       else
+         printf("%c is none from uppercase, lowercase and space.\n",ch);
+       
+       return 0;
+}
+       
+       #+END_SRC
+    7. ispunct()
+       #+BEGIN_SRC C
+       /* C example program of ispunct() .*/
+       #include<stdio.h>
+       #include<ctype.h>
+ 
+       int main()
+       {
+       char ch;
+       
+       printf("Enter a character: ");
+       scanf("%c",&ch);
+       
+       if(ispunct(ch))
+         printf("%c is a punctuation character.\n",ch);
+       else
+         printf("%c is not a punctuation character.\n",ch);
+       
+       return 0;
+       }
+       #+END_SRC
+
+    8. isprint()
+       #+BEGIN_SRC C
+       /* C example program of ispunct() .*/
+       #include<stdio.h>
+       #include<ctype.h>
+       
+       int main()
+       {
+       char ch;
+       
+       printf("Enter a character: ");
+       scanf("%c",&ch);
+       
+       if(isprint(ch))
+        printf("%c is a printable character.\n",ch);
+       else
+        printf("%c is not a printable character.\n",ch);
+ 
+	return 0;
+	}
+       #+END_SRC
+    9. toupper()
+    10. tolower()
+	#+BEGIN_SRC C
+	/* C example program of toupper() and tolower() .*/
+	#include<stdio.h>
+	#include<ctype.h>
+	
+	int main()
+	{
+      		char ch;
+      			
+      		printf("Enter a character: ");
+      		scanf("%c",&ch);
+      			
+      		printf("Upper case: %c, Lower case: %c\n",toupper(ch),tolower(ch));
+      			
+      		
+      		return 0;
+	}
+	
+	#+END_SRC
 ** Exercises
 *** Section 7.1
     1. Give thew decimal value of eaxch of the following integer constants:
