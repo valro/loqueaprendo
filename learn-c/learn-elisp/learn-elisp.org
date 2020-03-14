@@ -97,3 +97,28 @@ that uses or sets the mark."
 
    #+RESULTS:
    : One kind of animal has stripes and another is fierce.
+** if in more detail
+   #+BEGIN_SRC emacs-lisp
+   
+     (defun type-of-animal (characteristic)
+       "Print message in echo area depending on CHARACTERISTIC.
+     If the CHARACTERISTIC is the string \"fierce\",
+     then warn of a tiger."
+       (if (equal characteristic "fierce")
+              (message "It is a tiger!") 
+          (message "It is not fierce!")))
+   #+END_SRC
+
+   #+RESULTS:
+   : type-of-animal
+   #+BEGIN_SRC emacs-lisp
+   (type-of-animal "fierce")
+   #+END_SRC
+
+   #+RESULTS:
+   : It is a tiger!
+   #+BEGIN_SRC emacs-lisp
+   (type-of-animal "striped")
+   #+END_SRC
+   #+RESULTS:
+   : It is not fierce!

@@ -715,6 +715,24 @@ Run org-capture, and we now have our new w template (but we lost our default). T
        wget "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.gz.sig" -o /home/valgalsan/DatosMint/Downloads/emacs-26.3.tar.gz.sig
        #+END_SRC
 
+* Linux Debian
+** Install google chrome in Buster
+   1. Update and upgrade repositories
+      #+BEGIN_SRC sh
+      sudo update && sudo upgrade
+      
+      #+END_SRC
+
+   2. Download Google Chrome
+      #+BEGIN_SRC sh
+      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      #+END_SRC
+
+   3. Execute package
+      #+BEGIN_SRC s
+      sudo apt install ./google-chrome-stable_current_amd64.deb
+      #+END_SRC
+
 * Linux drivers
   
 * Linux From Scratch
@@ -879,6 +897,17 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 
     5. Seleccionamos "Web Application Manager". Usuario:vgs contraseña: "ValGalSanddmmyy" y...voilà.
 
+
+* C Programming      
+** Open Source C Libraries Repositories
+   1. [[https://www.gnu.org/software/libc/manual/html_node/index.html#Top][The GNU C Library Reference Manual]]
+   2. [[https://algoritmosyalgomas.com/maximo-comun-divisor-para-varios-numeros/][Maximo Comun Divisor]]
+   3. [[https://en.cppreference.com/w/c/links/libs][A List of Open Source C Libraries]]
+   4. [[https://www.gnu.org/software/gsl/][GSL - GNU Scientific Library]]
+      The key used to sign the official releases can be found [[https://www.gnu.org/software/gsl/key/gsl_key.txt][here]].
+      The signature can be verified with the following steps:
+      gpg --import gsl_key.txt
+      gpg --verify gsl-X.Y.tar.gz.sig
       
 * Elisp
 
@@ -1148,7 +1177,33 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - Call org-babel-shell-initialize mediante Alt-x
 
 ** [[https://www.emacswiki.org/emacs/KeyboardMacros][Keyboard-Macros]]
-** 
+*** 
+** Hooks
+
+[[http://ergoemacs.org/emacs/emacs_whats_hook.html][What's a hook?]]
+
+   A hook is a variable, its value is a list of functions (lisp symbols or lambda).
+Hook is designed to “run” when some event happens. When a hook “run”, all functions in that hook are called.
+Hook is similar to the concept of event in other systems. Adding functions to a hook is similar to adding event handlers. (note: emacs lisp manual also uses the term “event”, but that is lower level events to emacs (such as pressing a key), not events from emacs.)
+
+   [[http://ergoemacs.org/emacs/emacs_hooks_list.html][list of all hooks]]
+
+You can list all hooks with M-x apropos-variable then type -hook
+
+Hook Example
+
+#+BEGIN_SRC emacs-lisp
+;; use proportional width font for some modes
+(add-hook 'ruby-mode-hook 'variable-pitch-mode)
+(add-hook 'js-mode-hook 'variable-pitch-mode)
+
+#+END_SRC
+
+How to Find Hook
+
+Most major modes have a hook. If a mode's name is “xyz-mode”, its hook by convention is named “xyz-mode-hook”.
+
+
 * Emacs Web Browser
 
  * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]

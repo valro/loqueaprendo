@@ -18,7 +18,7 @@
  *Enter a 24-hour time: 13:15
  *Closest departure time is 12:47 p.m., arriving at 3:00 p.m.
  *
- *Hint: Convert the inoput into time expressed in minutes since
+ *Hint: Convert the input into time expressed in minutes since
  *midnight, and compare it to the departure times, also expressed in 
  *minutes since midnight. For example, 13:15 is 13 * 60 + 15 = 795 
  *minutes since midnight, which is closer to 12:47 p.m. (767 mininutes
