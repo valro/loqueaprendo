@@ -122,3 +122,48 @@ that uses or sets the mark."
    #+END_SRC
    #+RESULTS:
    : It is not fierce!
+** 3.12 Exercises
+   • Write a non-interactive function that doubles the value of its
+     argument, a number.  Make that function interactive.
+#+BEGIN_SRC emacs-lisp
+(defun make-double (number)
+   (message "The double of %d is: %d" number (* 2 number)))
+(make-double 16)
+#+END_SRC
+
+#+RESULTS:
+: The double of 16 is: 32
+#+BEGIN_SRC emacs-lisp
+(defun make-double (number)
+   (interactive "p")
+   (message "The double of %d is: %d" number (* 2 number)))
+
+#+END_SRC
+
+#+RESULTS:
+: make-double
+   • Write a function that tests whether the current value of
+     ‘fill-column’ is greater than the argument passed to the function,
+     and if so, prints an appropriate message.
+
+#+BEGIN_SRC emacs-lisp
+(defun curr-col (number)
+(if (> number fill-column)
+    (message "The number %d is greater than %d" number fill-column)
+  (message "The number %d is less than %d" number fill-column))) 
+#+END_SRC
+#+BEGIN_SRC emacs-lisp
+(curr-col 67)
+#+END_SRC
+
+#+RESULTS:
+: The number 67 is less than 80
+
+#+BEGIN_SRC emacs-lisp
+(curr-col 85)
+#+END_SRC
+
+#+RESULTS:
+: The number 85 is greater than 80
+* A Few Buffer-Related Functions
+

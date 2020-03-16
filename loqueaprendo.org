@@ -778,6 +778,11 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+END_SRC
   [[https://www.cyberciti.biz/faq/shell-script-to-get-the-time-difference/][Shell script o get the time difference]]
 
+* Linux Org
+Xorg (commonly referred as simply X) is the most popular display server among Linux users.
+Xorg can be installed with the xorg-server package. 
+[[https://wiki.archlinux.org/index.php/Xorg][Xorg]]
+
 * MSYS2-MINGW 
 
 ** [[https://www.booleanworld.com/get-unix-linux-environment-windows-msys2/][How to Get an Unix/Linux Environment on Windows with MSYS2]]
@@ -806,7 +811,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     diff mingw-config msys2-config
     #+END_SRC
 
-
 * Bash Ubuntu in Windows 10
 
 ** Change directory
@@ -821,7 +825,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+END_SRC
 
 ** [[https://github.com/hubisan/emacs-wsl#enable-the-windows-subsystem-for-linux][Install and run emacs with the Windows Subsystem for Linux (WSL) in Windows 10.]]
-
 
 * Tomcat
 
@@ -896,7 +899,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     4. Introducimos en el navegador: 192.168.1.150:8080
 
     5. Seleccionamos "Web Application Manager". Usuario:vgs contraseña: "ValGalSanddmmyy" y...voilà.
-
 
 * C Programming      
 ** Open Source C Libraries Repositories
@@ -975,7 +977,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    #+END_SRC
 ** [[][Code Characters for interactive]
 ** [[https://www.emacswiki.org/emacs/FrameSize][FrameSize -- At Emacs Startup, Programmaticaly (e.g. in your init file), Both Interactively and Programmatically]]
-
 
 * Emacs  
 
@@ -1203,11 +1204,9 @@ How to Find Hook
 
 Most major modes have a hook. If a mode's name is “xyz-mode”, its hook by convention is named “xyz-mode-hook”.
 
-
 * Emacs Web Browser
 
  * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
-
 
 * Windows 10
 
