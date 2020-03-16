@@ -4,7 +4,7 @@
 #+DATE: 03/02/202
 ;;#+STARTUP: showall 
 
-------
+----------------------------------------
 
 * Org Mode
 
@@ -255,19 +255,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     git show v0.0.0.2.1
     git describe
     git push --tags. Para que se comuniquen las etiquetas al repositorio remoto.
-*** Creando y fusionando ramas
-    Forma rápida de crear una rama: git checkout -b get-dir
-    Para crear esa rama en el repositorio remoto y sincronizr los dos
-    repositorios: git push --set-upstream origin get-dir
-    get-dir es el nombre de la rama que hemos creado.
-    Las ramas de trabajo se pueden listar con git branch. Si queremos ver todas: git branch --all
-    git branch -vv. Doble verbosidad
-    checkout te permite pasar fuicheros de una rama a otra sin tener que fusionar la rama completa: por ejemplo queremos pasar un fichero a la rama gh-pages desde la rama master: 
-    #+BEGIN_SRC sh
-    git checkout gh-pages 
-    git checkout master README.md 
-    #+END_SRC
-
     
 ** ver ramas: git branch
 ** crear rama: git branch learn-c
@@ -294,15 +281,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
    - El servicio tomcat está activo por defecto
    - Introducir en Navegador web: 192.168.1.150:8080
 
-* LaTeX
-** [[https://ondahostil.wordpress.com/2020/02/24/lo-que-he-aprendido-pdfjam-y-la-aneca/][pdfjam]]
-** [[https://ondahostil.wordpress.com/2020/02/04/lo-que-he-aprendido-la-clase-standalone/][standalone class]]
-* Linux. How do I know if a particular library is installed in Linux or not? 
-** ldconfig
-   If libjpeg is not installed, there will be no output. If it is installed, you will get a line for each version available. 
-     #+BEGIN_SRC sh
-     /sbin/ldconfig -p | grep libjpeg
-     #+END_SRC
 * Linux: State battery laptop
   #+BEGIN_SRC sh
   upower -i /org/freedesktop/UPower/devices/battery_BAT0
@@ -671,6 +649,8 @@ Run org-capture, and we now have our new w template (but we lost our default). T
      #+END_SRC
      
 
+** [[https://ezix.org/project/wiki/HardwareLiSter][Harward Lister (lshw)]]
+
 ** How to Check Drive Space     
    [[https://www.techrepublic.com/article/how-to-check-drive-space-on-linux-from-the-command-line/][How to check drive space on Linux from the command line]]
    - df reports the amount of disk space used on a file system
@@ -737,9 +717,40 @@ Run org-capture, and we now have our new w template (but we lost our default). T
        wget "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.gz.sig" -o /home/valgalsan/DatosMint/Downloads/emacs-26.3.tar.gz.sig
        #+END_SRC
 
+* Linux Debian
+** Install google chrome in Buster
+   1. Update and upgrade repositories
+      #+BEGIN_SRC sh
+      sudo update && sudo upgrade
+      
+      #+END_SRC
+
+   2. Download Google Chrome
+      #+BEGIN_SRC sh
+      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      #+END_SRC
+
+   3. Execute package
+      #+BEGIN_SRC s
+      sudo apt install ./google-chrome-stable_current_amd64.deb
+      #+END_SRC
+
+* Linux keyboard layout
+  #+BEGIN_SRC sh
+  gkbd-keyboard-display -l us
+  #+END_SRC
+To see what your installed keyboards are (for example to find the country code) use:
+#+BEGIN_SRC sh
+setxkbmap -query
+#+END_SRC
+
+#+RESULTS:
+| rules:  | evdev |
+| model:  | pc105 |
+| layout: | us    |
+
 * Linux drivers
-** Instalar drivers de windows con ndiswrapper
-  [[https://www.taringa.net/+linux/instalar-drivers-de-windows-en-ubuntu_12u4yo][Instalar drivers de windows en ubuntu]]
+  
 * Linux From Scratch
 
 ** [[http://www.linuxfromscratch.org/lfs/view/stable/][LFS - book - Gerard Beekmans - Version 9.0]]
@@ -762,6 +773,26 @@ Run org-capture, and we now have our new w template (but we lost our default). T
 * Linux Mint Update and Upgrade
 
 ** [[https://itsfoss.com/upgrade-linux-mint-version/][How to Upgrade to Linux Mint 19 (Step by Step Tutorial)]]
+
+* Linux Shell script to get the time difference
+** Se trata de obtener dos valores date en dos momentos
+   #+BEGIN_SRC shell
+   
+   #!/bin/bash
+   START=$(date +%s)
+   # do something
+
+   # start your script work here
+   ls -R /etc > /tmp/x
+   rm -f /tmp/x
+   # your logic ends here
+
+   END=$(date +%s)
+   DIFF=$(( $END - $START ))
+   echo "It took $DIFF seconds"
+
+   #+END_SRC
+  [[https://www.cyberciti.biz/faq/shell-script-to-get-the-time-difference/][Shell script o get the time difference]]
 
 * MSYS2-MINGW 
 
@@ -791,70 +822,6 @@ Run org-capture, and we now have our new w template (but we lost our default). T
     diff mingw-config msys2-config
     #+END_SRC
 
-* [[https://www.youtube.com/watch?v=Iya2b7F0WYk][¿Cómo instalar Debian paso a paso? | GNU/Linux Debian]]
-*** Listado de cosas a hacer
-    1. Elegir Advance modo gráfico
-2. elegir lenguaje. situación. utf-8
-3. configurar teclado.
-4. detectar y montar cd-rom
-5. cargar componentes del instalador. continuar
-6. detectar hardware de red
-7. configurar red automática
-8.nombre del máquina: debian-vgs
-9.nombre dominio: blanco
-10.contraseñas si, si
-11. contraseña de root
-12. usuario normal: valgalsan
-13.contraseña usuario
-14.configurar el reloj:si
-15.zona horario
-16.particionado de discos: Manual
-17. SCSI-Seleccion del disco
-18.crear tabla de particiones: gpt
-19.crear partición nueva
-20.asignar 500MB al principio. sistema ext2.punto de montaje /boot
-21.crear partición: root. 100 gb. ext4. punto de montaje: /
-22.crear swap. 8 GB. principio.
-23.crear home. ext4 punto de montaje /home.
-24. Finalizar particionado. Escribir los cambios al disco.
-25.Instalar el sistema base. Opcion por defecto.
-26.drivers. instalar genéricos.
-27.configurar el gestor de paquetes. NO. Un único disco.
-28.Réplica Red. SI
-29.protocolo por defecto.
-30.seleccionar servidor de usa. alta disponibilidad.
-31.Software no libre SI
-32.Analizar repositorios de fuentes. NO-SI
-33.actualizaciones de seguridad. actualizaciones de distribución
-34.encuesta. NO
-35.escritorio. GNOME
-36.instalar cargdaor de arranque. SI (GRUB). Elegir el disco.remivibles.NO
-37.Terminar la instalación
-38.Horario UTC
-39. Instalacion completa. Extraer el USB. Clic en continuar
-
-40. install ndiswrapper
-
-Personalizar debian
-1. incluir usuario en sudoers
-nano /etc/sudoers
-añadir valgalsan
-2. ampliar repositorios. software y updates.
-3. personalizar debian
-        retoques. gnome tweak tools
-        animaciones...
-        temas apt-install ark-shell. iconos
-        aplicaciones al inicio
-        barra superior
-        extensiones. GS Connect. Dash to Dock
-        teclado y raton
-        tipografía
-        tasksel
-        openbox
-       
-Instalar tmux
-Instalar git
-Instalar emacs
 
 * Bash Ubuntu in Windows 10
 
@@ -871,8 +838,6 @@ Instalar emacs
 
 ** [[https://github.com/hubisan/emacs-wsl#enable-the-windows-subsystem-for-linux][Install and run emacs with the Windows Subsystem for Linux (WSL) in Windows 10.]]
 
-* bspwm
-** [[https://www.instructables.com/id/Bspwm-Installation-and-Configuration/][Bspwm Installation and Configuration]]
 
 * Tomcat
 
@@ -948,6 +913,17 @@ Instalar emacs
 
     5. Seleccionamos "Web Application Manager". Usuario:vgs contraseña: "ValGalSanddmmyy" y...voilà.
 
+
+* C Programming      
+** Open Source C Libraries Repositories
+   1. [[https://www.gnu.org/software/libc/manual/html_node/index.html#Top][The GNU C Library Reference Manual]]
+   2. [[https://algoritmosyalgomas.com/maximo-comun-divisor-para-varios-numeros/][Maximo Comun Divisor]]
+   3. [[https://en.cppreference.com/w/c/links/libs][A List of Open Source C Libraries]]
+   4. [[https://www.gnu.org/software/gsl/][GSL - GNU Scientific Library]]
+      The key used to sign the official releases can be found [[https://www.gnu.org/software/gsl/key/gsl_key.txt][here]].
+      The signature can be verified with the following steps:
+      gpg --import gsl_key.txt
+      gpg --verify gsl-X.Y.tar.gz.sig
       
 * Elisp
 
@@ -1016,22 +992,9 @@ Instalar emacs
 ** [[][Code Characters for interactive]
 ** [[https://www.emacswiki.org/emacs/FrameSize][FrameSize -- At Emacs Startup, Programmaticaly (e.g. in your init file), Both Interactively and Programmatically]]
 
-* Videos
-** [[https://www.youtube.com/channel/UC0uTPqBCFIpZxlz_Lv1tk_g/search?query=ido][Protesilaos Stavrou]]
+
 * Emacs  
-** [[http://tuhdo.github.io/emacs-tutor.html#orgheadline15][Emacs Mini Manual (PART 1) - THE BASICS]]
-** [[https://emacs.stackexchange.com/questions/5647/how-to-input-special-character-such-as-celsius-symbol-and-common-greek-letters][How to input special character, such as Celsius symbol, and common greek letters?]] 
-   #+BEGIN_SRC elisp
-   M-x set-input-method TeX
-   #+END_SRC
-   #+BEGIN_SRC elisp
-   M-x describe-input-method
-   #+END_SRC
-   por ejemplo, introducir las letras pi y epsilon
-   #+BEGIN_SRC elisp
-   M-x set-input-method greek
-   Escribiendo: e, pi se obtiene: ε, π
-   #+END_SRC
+
 ** Refresh Dired: C-x b g
 
 ** GoTo
@@ -1231,86 +1194,41 @@ Instalar emacs
 
 ** [[https://www.emacswiki.org/emacs/KeyboardMacros][Keyboard-Macros]]
 *** 
-* Emacs. protesilaos. configuration
-** init.el
-   #+BEGIN_SRC emasc-lisp
-   (require 'package)
-   (setq package-enable-at-startup nil)
-   (add-to-list 'package-archives
-     '("melpa" . "https://melpa.org/packages/"))
-   (unless package--initialized (package-initialize))
+** Hooks
 
-   (require 'org)
-  (org-babel-load-file (expand-file-name "~/.emacs.d/emacs-init.org"))
+[[http://ergoemacs.org/emacs/emacs_whats_hook.html][What's a hook?]]
 
-   #+END_SRC
-* Emacs. Install from Source
-  - Step one. Install dependencies
-    #+BEGIN_SRC sh
-    apt-get build-dep emacs24
-    #+END_SRC
-  - Step two. Check if ftp package is installed.
-    #+BEGIN_SRC sh
-    apt-cache policy ftp
-    #+END_SRC
+   A hook is a variable, its value is a list of functions (lisp symbols or lambda).
+Hook is designed to “run” when some event happens. When a hook “run”, all functions in that hook are called.
+Hook is similar to the concept of event in other systems. Adding functions to a hook is similar to adding event handlers. (note: emacs lisp manual also uses the term “event”, but that is lower level events to emacs (such as pressing a key), not events from emacs.)
 
-    #+RESULTS:
-    | ftp:       |                                 |             |       |          |
-    | Installed: | (none)                          |             |       |          |
-    | Candidate: | 0.17-34.1                       |             |       |          |
-    | Version    | table:                          |             |       |          |
-    | 0.17-34.1  | 500                             |             |       |          |
-    | 500        | http://ftp.us.debian.org/debian | buster/main | amd64 | Packages |
-    if it doesn't install it.
-    #+BEGIN_SRC sh
-    sudo apt install ftp
-    #+END_SRC
-  - Step three. Make the current user own everything inside the folder (and the folder itself):
-    #+BEGIN_SRC sh
-    #sudo chown -R $USER ./Documents/linux-sources/emacs
-    sudo chown -R $USER /path/to/directory
-    #+END_SRC
-  - Step four. Download the files.
-    #+BEGIN_SRC sh
-    ftp ftp.gnu.org anonymous
-    #+END_SRC
-    #+BEGIN_SRC 
-    cd gnu/emacs
-    get emacs-26.3.tar.xz
-    get emacs-26.3.tar.xz.sig
-    #+END_SRC
-  - Step five. Uncompress the file.
-    #+BEGIN_SRC sh
-    tar -xvf emacs-26.3.tar.xz
-    #+END_SRC
-  - Step six. change to directory
-    #+BEGIN_SRC sh
-    cd emacs-26.3
-    #+END_SRC
-  - Step seven. configure
-    #+BEGIN_SRC 
-    ./configure
-    #+END_SRC
-  - Step eight. make
-    #+BEGIN_SRC 
-    make
-    #+END_SRC
-  - Step nine. mahe install using /usr/local/valgalsan
-    #+BEGIN_SRC 
-    sudo make install prefix=/usr/local/valgalsan/emacs
-    #+END_SRC
-** Building emacs from git
-*** [[http://ergoemacs.org/emacs/building_emacs_from_git_repository.html][building emcas from git]]
+   [[http://ergoemacs.org/emacs/emacs_hooks_list.html][list of all hooks]]
 
+You can list all hooks with M-x apropos-variable then type -hook
+
+Hook Example
+
+#+BEGIN_SRC emacs-lisp
+;; use proportional width font for some modes
+(add-hook 'ruby-mode-hook 'variable-pitch-mode)
+(add-hook 'js-mode-hook 'variable-pitch-mode)
+
+#+END_SRC
+
+How to Find Hook
+
+Most major modes have a hook. If a mode's name is “xyz-mode”, its hook by convention is named “xyz-mode-hook”.
+
+**  how to use monospace font in tables and source code blocks in org-mode, proportional font in other parts
+   [[https://yoo2080.wordpress.com/2013/05/30/monospace-font-in-tables-and-source-code-blocks-in-org-mode-proportional-font-in-other-parts/][YooBox]]
+   [[https://www.emacswiki.org/emacs/SetFonts][Set Fonts]]
+
+** 
 * Emacs Web Browser
 
  * [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html#Top][EWW Manual]]
 
-* C/C++ Development Environment for Emacs
-** [[https://tuhdo.github.io/c-ide.html][C/C++ Development Environment for Emacs]]
 
-* Emacs packages
-** [[https://github.com/emacs-helm/helm/wiki][Helm]]
 * Windows 10
 
 ** Persistent flag from LocalBridge.exe program
